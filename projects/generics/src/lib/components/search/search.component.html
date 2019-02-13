@@ -1,0 +1,10 @@
+<lib-search-form
+ (onSubmit)="onSearchClicked($event)"
+ [searchCriteria]="searchCriteria"
+></lib-search-form>
+
+<ngx-data-table
+data=[data]
+[columns]="columns"
+[route]="routerForTable"
+></ngx-data-table>

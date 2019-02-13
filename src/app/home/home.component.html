@@ -1,0 +1,23 @@
+<div class="jumbotron">
+
+  <h2 class="display-3">
+    Generic Components
+  </h2>
+  <hr class="my-4"/>
+
+  <div class="card border-info mb-3" style="max-width: 100%;">
+    <div class="card-header">User Search</div>
+    <div class="card-body">
+      <lib-search-form
+      (onSubmit)="onClick($event)"
+      [searchCriteria]="formFields">
+      </lib-search-form>
+    </div>
+  </div>
+
+
+<ngx-data-table
+[data]="dataResults"
+[columns]="columns"
+></ngx-data-table>
+</div>

@@ -1,0 +1,6 @@
+mat-header-cell,mat-paginator,.btn{
+    background-color: rgb(35, 106, 172);
+    color: white;
+    font: Arial;
+    font-size: 15px;
+}

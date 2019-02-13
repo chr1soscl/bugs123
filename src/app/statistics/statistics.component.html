@@ -1,0 +1,32 @@
+<div class="jumbotron">
+
+  <div class="card border-info mb-3" style="max-width: 100%;">
+    <div class="card-header">Root Cause Analysis</div>
+    <div class="card-body">
+      <lib-search-form
+      (onSubmit)="onClick($event)"
+      [searchCriteria]="formFields">
+      </lib-search-form>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th style="width: 35%">Criticallity</th>
+        <th style="width: 65%">RCA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><google-chart [data]="columnChart"></google-chart></td>
+        <td><google-chart [data]="stackedChart"></google-chart></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+
+  
+
+</div>

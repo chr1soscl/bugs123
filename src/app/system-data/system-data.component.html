@@ -1,0 +1,23 @@
+<div class="jumbotron">
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link show active" data-toggle="tab" href="#releases" (click)="loadReleases()">Releases</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link show" data-toggle="tab" href="#projects" (click)="loadProjects()">Projects</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">Disabled</a>
+  </li>  
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active show" id="releases">
+      <google-chart [data]="releasesTableChart"></google-chart>
+  </div>
+  <div class="tab-pane fade" id="projects">
+      <google-chart [data]="projectsTableChart"></google-chart> 
+  </div>
+</div>
+
+</div>
