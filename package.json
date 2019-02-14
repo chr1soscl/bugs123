@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build:generics": "ng-packagr -p ./projects/generics/ng-package.json",
-    "postinstall": "ng build --aot --target=production"
+    "postinstall": "ng build --prod --aot"
   },
   "private": true,
   "dependencies": {
