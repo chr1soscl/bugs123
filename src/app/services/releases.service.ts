@@ -8,6 +8,6 @@ import { Http } from '@angular/http';
 export class ReleasesService extends DataService{
 
   constructor(http:Http) {
-    super('http://localhost:3000/deyko/releases',http);
+    super('https://deyko.herokuapp.com/deyko/releases',http);
    }
 }

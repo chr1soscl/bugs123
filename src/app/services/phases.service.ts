@@ -8,6 +8,6 @@ import { DataService } from 'projects/generics/src/public_api';
 export class PhasesService extends DataService{
 
   constructor(http:Http) {
-    super('http://localhost:3000/deyko/phases',http);
+    super('https://deyko.herokuapp.com/deyko/phases',http);
    }
 }

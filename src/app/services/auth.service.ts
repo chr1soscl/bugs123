@@ -8,7 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthService extends DataService {
 
   constructor(http:Http,private router:Router,private jwtHelper:JwtHelperService) {
-    super('http://localhost:3000/deyko/userlogin',http);
+    super('https://deyko.herokuapp.com/deyko/userlogin',http);
    }
 
    loggedIn(){
