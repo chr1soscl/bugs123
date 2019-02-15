@@ -55,40 +55,11 @@ export class StatisticsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.columnChart = ChartFactory.getChartInstance('columnChart',
-    [
-    ['Defects', 'Number of Defects'],
-    ['Critical', 3],
-    ['High', 5],
-    ['Medium', 12],
-    ['Low',  6]     
-    ],
-    'Criticality title'
-    ).getChart();
+    this.columnChart = this.loadColumnChart();
 
-    this.pieChart = ChartFactory.getChartInstance('pieChart',
-    [
-    ['Defects', 'Number of Defects'],
-    ['High', 4],
-    ['Medium', 12],
-    ['Low',  6],
-    ['Critical', 5],
-    ['Invalid', 7],
-    ['Closed', 15]    
-    ],
-    'Root Cause Analysis'
-    ).getChart();
+    this.pieChart = this.loadPieChart();
 
-    this.stackedChart = ChartFactory.getChartInstance('stackedChart',
-    [
-      ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
-       'Western', 'Literature', { role: 'annotation' } ],
-      ['2010', 10, 24, 20, 32, 18, 5, ''],
-      ['2020', 16, 22, 23, 30, 16, 9, ''],
-      ['2030', 28, 19, 29, 30, 12, 13, '']
-    ],
-    'RCA Project'
-    ).getChart();
+    this.stackedChart = this.loadStackedChart();
   
   
 
@@ -115,6 +86,47 @@ export class StatisticsComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  loadColumnChart(){
+   return ChartFactory.getChartInstance('columnChart',
+    [
+    ['Defects', 'Number of Defects'],
+    ['Critical', 3],
+    ['High', 5],
+    ['Medium', 12],
+    ['Low',  6]     
+    ],
+    'Criticality title'
+    ).getChart();
+  }
+
+  loadPieChart(){
+    return ChartFactory.getChartInstance('pieChart',
+    [
+    ['Defects', 'Number of Defects'],
+    ['High', 4],
+    ['Medium', 12],
+    ['Low',  6],
+    ['Critical', 5],
+    ['Invalid', 7],
+    ['Closed', 15]    
+    ],
+    'Root Cause Analysis'
+    ).getChart();
+  }
+
+  loadStackedChart(){
+    return ChartFactory.getChartInstance('stackedChart',
+    [
+      ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
+       'Western', 'Literature', { role: 'annotation' } ],
+      ['2010', 10, 24, 20, 32, 18, 5, ''],
+      ['2020', 16, 22, 23, 30, 16, 9, ''],
+      ['2030', 28, 19, 29, 30, 12, 13, '']
+    ],
+    'RCA Project'
+    ).getChart();
   }
 
   onClick(event):void{
