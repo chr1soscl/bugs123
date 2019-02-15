@@ -3,6 +3,8 @@ import { ReleasesService } from '../services/releases.service';
 import { PhasesService } from '../services/phases.service';
 
 import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
+import { GoogleChart } from '../common/googlechart';
+import { ChartFactory } from '../common/chartfactory';
 
 @Component({
   selector: 'app-statistics',
@@ -11,57 +13,11 @@ import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces
 })
 export class StatisticsComponent implements OnInit {
 
-  public columnChart: GoogleChartInterface = {
-    chartType: 'ColumnChart',
-    dataTable: [
-      ['Defects', 'Number of Defects'],
-      ['Critical', 3],
-      ['High', 5],
-      ['Medium', 12],
-      ['Low',  6]     
-    ],
-    //opt_firstRowIsData: true,
-    options: {
-      title: 'Criticallity',
-      height: 600,
-      legend:{position: 'bottom'}
-    },
-  };
+  public columnChart;
 
-  public pieChart: GoogleChartInterface = {
-    chartType: 'PieChart',
-    dataTable: [
-      ['Defects', 'Number of Defects'],
-      ['High', 4],
-      ['Medium', 12],
-      ['Low',  6],
-      ['Critical', 5]    
-    ],
-    //opt_firstRowIsData: true,
-    options: {
-      title: 'Criticallity',
-      height: 600
-    },
-  };
+  public pieChart;
 
-  public stackedChart: GoogleChartInterface = {
-    chartType: 'ColumnChart',
-    dataTable: [
-      ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
-       'Western', 'Literature', { role: 'annotation' } ],
-      ['2010', 10, 24, 20, 32, 18, 5, ''],
-      ['2020', 16, 22, 23, 30, 16, 9, ''],
-      ['2030', 28, 19, 29, 30, 12, 13, '']
-    ],
-    //opt_firstRowIsData: true,
-    options: {
-      height: 600,
-      legend: { position: 'top', maxLines: 5},
-      bar: { groupWidth: '50%' },
-      isStacked: 'percent',
-      backgroundColor:'white'
-    },
-  };
+  public stackedChart;
 
   public tableChart =  {
     chartType: 'Table',
@@ -74,25 +30,13 @@ export class StatisticsComponent implements OnInit {
       ['Food', 22600, 78, 1100],
       ['Art', 1100, 42, 400]
     ],
-    formatters: [
-      {
-        columns: [1, 2],
-        type: 'NumberFormat',
-        options: {
-          prefix: '&euro;', negativeColor: 'red', negativeParens: true
-        }
-      },
-      {
-        columns: [3],
-        type: 'ColorFormat',
-        options: {
-          ranges: [
-            {from: 100, to: 900, fromBgColor: 'green', toBgColor: 'yellow'}
-          ]
-        }
-      }
-    ],
-    options: {title: 'Countries', allowHtml: true}
+    options: {
+      title: 'Releases', 
+      allowHtml: true,
+      alternatingRowStyle: true,
+      pageSize:10,
+      width:'100%'      
+    }
   };
 
   releases:any[]=[];
@@ -110,7 +54,44 @@ export class StatisticsComponent implements OnInit {
   constructor(private releaseService:ReleasesService, private phasesService:PhasesService) { }
 
   ngOnInit() {
-    
+
+    this.columnChart = ChartFactory.getChartInstance('columnChart',
+    [
+    ['Defects', 'Number of Defects'],
+    ['Critical', 3],
+    ['High', 5],
+    ['Medium', 12],
+    ['Low',  6]     
+    ],
+    'Criticality title'
+    ).getChart();
+
+    this.pieChart = ChartFactory.getChartInstance('pieChart',
+    [
+    ['Defects', 'Number of Defects'],
+    ['High', 4],
+    ['Medium', 12],
+    ['Low',  6],
+    ['Critical', 5],
+    ['Invalid', 7],
+    ['Closed', 15]    
+    ],
+    'Root Cause Analysis'
+    ).getChart();
+
+    this.stackedChart = ChartFactory.getChartInstance('stackedChart',
+    [
+      ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
+       'Western', 'Literature', { role: 'annotation' } ],
+      ['2010', 10, 24, 20, 32, 18, 5, ''],
+      ['2020', 16, 22, 23, 30, 16, 9, ''],
+      ['2030', 28, 19, 29, 30, 12, 13, '']
+    ],
+    'RCA Project'
+    ).getChart();
+  
+  
+
     this.releaseService.getAll().subscribe(
       releases=>{
         releases.forEach(element => {
