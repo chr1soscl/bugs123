@@ -23,18 +23,15 @@
         
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#criticalityTab">Criticality</a>
+                  <a class="nav-link active" data-toggle="tab" href="#criticalityTab" (click)="loadLeftColumnChartTab()">Criticality</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#phaseTab">Phase</a>
+                  <a class="nav-link" data-toggle="tab" href="#criticalityTab" (click)="loadLeftPieChartTab()">Phase</a>
                 </li>
               </ul>
               <div id="myCriticality" class="tab-content">
                 <div class="tab-pane fade show active" id="criticalityTab">
-                    <google-chart [data]="columnChart"></google-chart>
-                </div>
-                <div class="tab-pane fade" id="phaseTab">
-                    <google-chart [data]="pieChart"></google-chart>
+                    <google-chart [data]="generalLeftPane"></google-chart>
                 </div>
               </div>
           
@@ -44,24 +41,18 @@
 
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#rcaTab">RCA</a>
+                  <a class="nav-link active" data-toggle="tab" href="#rcaTab" (click)="loadRightPieChartTab()">RCA</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#rcaprojectTab">RCA Project</a>
+                  <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadRightColumnChartTab()">RCA Project</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#projectrcaTab">Project RCA</a>
+                    <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadRightStackedChartTab()">Project RCA</a>
                   </li>
               </ul>
               <div id="myRCAs" class="tab-content">
                 <div class="tab-pane fade show active" id="rcaTab">
-                    <google-chart [data]="pieChart"></google-chart>
-                </div>
-                <div class="tab-pane fade" id="rcaprojectTab">
-                    <google-chart [data]="stackedChart"></google-chart>
-                </div>
-                <div class="tab-pane fade" id="projectrcaTab">
-                    <google-chart [data]="columnChart"></google-chart>
+                    <google-chart [data]="generalRightPane"></google-chart>
                 </div>
               </div>
 

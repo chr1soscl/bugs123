@@ -1,6 +1,6 @@
 <form [formGroup]="form" class="form-inline">
   <div *ngFor="let input of searchCriteria" class="form-group m-2">
-    <label *ngIf="input.type!=='button' && input.type!=='reset'" for="{{input.id}}" class="mr-sm-4">
+    <label *ngIf="input.type!=='button' && input.type!=='reset'" for="{{input.id}}" class="mr-sm-2">
         <div *ngIf="includeRequired(input.validators)">*</div>
         {{input.label}}
     </label>
@@ -70,10 +70,10 @@
         <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
       <div *ngSwitchCase="'button'">
-        <button type="{{input.type}}" class="btn btn-sm mb-2" (click)="onClick()" [disabled]="!form.valid">{{input.label}}</button>
+        <button type="{{input.type}}" class="btn btn mb-2" (click)="onClick()" [disabled]="!form.valid">{{input.label}}</button>
       </div>
       <div *ngSwitchCase="'reset'">
-        <button type="{{input.type}}" class="btn btn-sm mb-2">{{input.label}}</button>
+        <button type="{{input.type}}" class="btn btn mb-2">{{input.label}}</button>
       </div>
     </div>
   </div>

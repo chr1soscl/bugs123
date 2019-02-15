@@ -13,10 +13,10 @@ import { ChartFactory } from '../common/chartfactory';
 })
 export class StatisticsComponent implements OnInit {
 
+  public generalLeftPane;
+  public generalRightPane;
   public columnChart;
-
   public pieChart;
-
   public stackedChart;
 
   public tableChart =  {
@@ -57,7 +57,11 @@ export class StatisticsComponent implements OnInit {
 
     this.columnChart = this.loadColumnChart();
 
+    this.generalLeftPane = this.columnChart;
+
     this.pieChart = this.loadPieChart();
+
+    this.generalRightPane = this.pieChart;
 
     this.stackedChart = this.loadStackedChart();
   
@@ -127,6 +131,26 @@ export class StatisticsComponent implements OnInit {
     ],
     'RCA Project'
     ).getChart();
+  }
+
+  loadLeftColumnChartTab(){
+    this.generalLeftPane=this.loadColumnChart();
+  }
+
+  loadLeftPieChartTab(){
+    this.generalLeftPane=this.loadPieChart();
+  }
+
+  loadRightPieChartTab(){
+    this.generalRightPane=this.loadPieChart();
+  }
+
+  loadRightColumnChartTab(){
+    this.generalRightPane=this.loadColumnChart();
+  }
+
+  loadRightStackedChartTab(){
+    this.generalRightPane=this.loadStackedChart();
   }
 
   onClick(event):void{
