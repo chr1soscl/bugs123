@@ -80,7 +80,6 @@ export class SystemDataComponent implements OnInit  {
              projectsResp[i].project_desc,
              projectsResp[i].active]);
         }
-        console.log(this.projects);
         this.projectsTableChart = Object.create(this.projectsTableChart);
         this.projectsTableChart.dataTable = this.projects;
       },

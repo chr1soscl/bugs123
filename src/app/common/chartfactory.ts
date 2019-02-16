@@ -13,7 +13,6 @@ export class ChartFactory{
             return new PieChart(data,title);
         } else
         if(type==='stackedChart'){
-            console.log("inside getInstance",type);
             return new StackedChart(data,title);
         }
             
