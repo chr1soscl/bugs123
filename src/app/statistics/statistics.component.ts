@@ -28,6 +28,8 @@ export class StatisticsComponent implements OnInit {
   public rcaChart;
   public rcaProjectChart;
   public projectRcaChart;
+  public activeLeftPane=1;
+  public activeRightPane=1;
 
   chartRequest={
     release:null,
@@ -58,11 +60,8 @@ export class StatisticsComponent implements OnInit {
   ngOnInit() {
 
     this.loadLeftCriticalityChartTab();
-
     this.loadRightRCAChartTab();
   
-  
-
     this.releaseService.getAll().subscribe(
       releases=>{
         for(let i in releases){
@@ -125,6 +124,7 @@ export class StatisticsComponent implements OnInit {
 
   loadLeftCriticalityChartTab(){
     let criticalityChart=this.loadCriticalityChart();
+    this.activeLeftPane=1;
     console.log("loadLeftColumnChartTab>columnChart>",criticalityChart);
     this.criticalityChartService.getObject(this.chartRequest).subscribe(data=>{
       this.criticalityChart = Object.create(criticalityChart);
@@ -138,6 +138,7 @@ export class StatisticsComponent implements OnInit {
 
   loadLeftPhaseChartTab(){
     let phaseChart=this.loadPhaseChart();
+    this.activeLeftPane=2;
     console.log("loadLeftPhaseChartTab>columnChart>",phaseChart);
     this.phaseChartService.getObject(this.chartRequest).subscribe(data=>{
       this.phaseChart = Object.create(phaseChart);
@@ -150,6 +151,7 @@ export class StatisticsComponent implements OnInit {
 
   loadRightRCAChartTab(){
     let rcaChart=this.loadRCAChart();
+    this.activeRightPane=1;
     console.log("loadRightRCAChartTab>rcaChart>",rcaChart);
     this.rcaChartService.getObject(this.chartRequest).subscribe(data=>{
       this.rcaChart = Object.create(rcaChart);
@@ -162,6 +164,7 @@ export class StatisticsComponent implements OnInit {
 
   loadRightRCAProjectChartTab(){
     let rcaProjectChart=this.loadRCAProjectChart();
+    this.activeRightPane=2;
     console.log("loadRightRCAProjectChartTab>rcaProjectChart>",rcaProjectChart);
     this.rcaProjectChartService.getObject(this.chartRequest).subscribe(data=>{
       this.rcaProjectChart = Object.create(rcaProjectChart);
@@ -174,6 +177,7 @@ export class StatisticsComponent implements OnInit {
 
   loadRightProjectRCAChartTab(){
     let projectRcaChart=this.loadProjectRCAChart();
+    this.activeRightPane=3;
     console.log("loadRightProjectRCAChartTab>rcaProjectChart>",projectRcaChart);
     this.projectRcaChartService.getObject(this.chartRequest).subscribe(data=>{
       this.projectRcaChart = Object.create(projectRcaChart);
@@ -189,11 +193,16 @@ export class StatisticsComponent implements OnInit {
     this.chartRequest.release=event.release;
     this.chartRequest.phase=event.phase;
     console.log("onClick>chartRequest>",this.chartRequest);
-    this.loadLeftCriticalityChartTab();
-    //this.loadLeftPhaseChartTab();
-    this.loadRightRCAChartTab();
-    //this.loadRightRCAProjectChartTab();
-    //this.loadRightProjectRCAChartTab();
+    if(this.activeLeftPane===1)
+      this.loadLeftCriticalityChartTab();
+    if(this.activeLeftPane===2)
+      this.loadLeftPhaseChartTab();
+    if(this.activeRightPane===1)
+      this.loadRightRCAChartTab();
+    if(this.activeRightPane===2)
+      this.loadRightRCAProjectChartTab();
+    if(this.activeRightPane===3)
+      this.loadRightProjectRCAChartTab();
   }
 
 }
