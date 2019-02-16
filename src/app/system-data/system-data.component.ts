@@ -49,15 +49,16 @@ export class SystemDataComponent implements OnInit  {
     this.releases=[['Id','Name','Description','Type','Year','Month','Active']];
     this.releaseService.getAll().subscribe(
       releasesResp=>{
-        releasesResp.forEach(element => {
-              this.releases.push([element.release_id,
-                                  element.release_name,
-                                  element.release_description,
-                                  element.release_type_id, 
-                                  element.year_name+'', 
-                                  element.month_id, 
-                                  element.active]);
-        });
+        for(let i in releasesResp){
+              this.releases.push([
+                releasesResp[i].release_id,
+                releasesResp[i].release_name,
+                releasesResp[i].release_description,
+                releasesResp[i].release_type_id, 
+                releasesResp[i].year_name+'', 
+                releasesResp[i].month_id, 
+                releasesResp[i].active]);
+        }
         this.releasesTableChart = Object.create(this.releasesTableChart);
         this.releasesTableChart.dataTable = this.releases;
       },
@@ -71,13 +72,14 @@ export class SystemDataComponent implements OnInit  {
     this.projects=[['Id','Code','Name','Description','Active']];
     this.projectsService.getAll().subscribe(
       projectsResp=>{
-        projectsResp.forEach(element => {
-              this.projects.push([element.project_id,
-                                  element.project_code,
-                                  element.project_name,
-                                  element.project_desc,
-                                  element.active]);
-        });
+        for(let i in projectsResp){
+          this.projects.push(
+            [projectsResp[i].project_id,
+             projectsResp[i].project_code,
+             projectsResp[i].project_name,
+             projectsResp[i].project_desc,
+             projectsResp[i].active]);
+        }
         console.log(this.projects);
         this.projectsTableChart = Object.create(this.projectsTableChart);
         this.projectsTableChart.dataTable = this.projects;

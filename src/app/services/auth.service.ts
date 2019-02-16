@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { DataService } from 'projects/generics/src/public_api';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthService extends DataService {
 
-  constructor(http:Http,private router:Router,private jwtHelper:JwtHelperService) {
+  constructor(http:HttpClient,private router:Router,private jwtHelper:JwtHelperService) {
     super('https://deyko.herokuapp.com/deyko/userlogin',http);
    }
 

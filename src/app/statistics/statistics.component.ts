@@ -6,6 +6,8 @@ import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces
 import { GoogleChart } from '../common/googlechart';
 import { ChartFactory } from '../common/chartfactory';
 
+
+
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -69,10 +71,10 @@ export class StatisticsComponent implements OnInit {
 
     this.releaseService.getAll().subscribe(
       releases=>{
-        releases.forEach(element => {
-          if(element.active===1)
-              this.releases.push({id:element.release_id,label:element.release_name});
-        });
+        for(let i in releases){
+          if(releases[i].active===1)
+              this.releases.push({id:releases[i].release_id,label:releases[i].release_name});
+        }
       },
       error=>{
         console.log(error);
@@ -81,10 +83,10 @@ export class StatisticsComponent implements OnInit {
 
     this.phasesService.getAll().subscribe(
       phases=>{
-        phases.forEach(element=>{
-          if(element.active===1)
-              this.phases.push({id:element.phase_id,label:element.phase_name});
-        });
+        for(let i in phases){
+          if(phases[i].active===1)
+              this.phases.push({id:phases[i].phase_id,label:phases[i].phase_name});
+        }
       },
       error=>{
         console.log(error);

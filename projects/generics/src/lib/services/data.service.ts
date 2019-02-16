@@ -2,7 +2,6 @@ import { InvalidUserError } from './../common/invalid-user-error';
 //Angular Core
 import { Injectable } from '@angular/core';
 import { Inject } from '@angular/core';
-import { Http } from '@angular/http';
 //Errors
 import { BadRequestError } from './../common/bad-request-error';
 import { NotFoundError } from './../common/not-found-error';
@@ -11,17 +10,17 @@ import { AppError } from './../common/app-error';
 import { Observable,throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
-
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DataService {
 
-  constructor(@Inject(String) private _url:string, private http: Http) { }
+  constructor(@Inject(String) private _url:string, private http: HttpClient) { }
 
   getAll(){
     return this.http.get(this._url)
     .pipe(
-      map(response=>response.json())
+      map(response=>response)
     ).pipe(
       catchError(this.handleError)
     );
@@ -30,7 +29,7 @@ export class DataService {
   create(resource){
     return this.http.post(this._url,JSON.stringify(resource))
     .pipe(
-      map(response=>response.json())
+      map(response=>response)
     ).pipe(
       catchError(this.handleError)
     );
@@ -39,7 +38,7 @@ export class DataService {
   update(resource){
     return this.http.patch(this._url+'/'+resource.id,JSON.stringify({isRead:true}))
     .pipe(
-      map(response=>response.json())
+      map(response=>response)
     ).pipe(
       catchError(this.handleError)
     );
@@ -48,17 +47,16 @@ export class DataService {
   delete(id){
     return this.http.delete(this._url+'/'+id)
     .pipe(
-      map(response=>response.json())
+      map(response=>response)
     ).pipe(
       catchError(this.handleError)
     );
   }
 
   getId(id){
-    console.log("id:",id);
     return this.http.get(this._url+'/'+id)
     .pipe(
-      map(response=>response.json())
+      map(response=>response)
     ).pipe(
       catchError(this.handleError)
     );
@@ -67,7 +65,7 @@ export class DataService {
   getObject(resource){
     return this.http.post(this._url,resource)
     .pipe(
-      map(response=>response.json())
+      map(response=>response)
     ).pipe(
       catchError(this.handleError)
     );

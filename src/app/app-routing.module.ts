@@ -1,14 +1,14 @@
+//Angular
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+//Components
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { SystemDataComponent } from './system-data/system-data.component';
 import { BugsDataComponent } from './bugs-data/bugs-data.component';
-
-//add auth guard
-
-
+//Guards
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -22,11 +22,10 @@ const routes: Routes = [
     pathMatch: "full"
   },
   { path: "bugs123", component: LoginComponent },
-  { path: "home", component: HomeComponent },
-  { path: "home", component: HomeComponent },
-  { path: "statistics", component: StatisticsComponent },
-  { path: "systemdata", component: SystemDataComponent },
-  { path: "bugsdata", component: BugsDataComponent }
+  { path: "home", component: HomeComponent, canActivate:[AuthGuard] },
+  { path: "statistics", component: StatisticsComponent, canActivate:[AuthGuard] },
+  { path: "systemdata", component: SystemDataComponent, canActivate:[AuthGuard] },
+  { path: "bugsdata", component: BugsDataComponent, canActivate:[AuthGuard] }
 ];
 
 @NgModule({
