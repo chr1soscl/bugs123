@@ -5,6 +5,12 @@ import { PhasesService } from '../services/phases.service';
 import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
 import { GoogleChart } from '../common/googlechart';
 import { ChartFactory } from '../common/chartfactory';
+import { CriticalityChartService } from '../services/chart-services/criticality-chart.service';
+import { ColumnChart } from '../common/columnchart';
+import { PhaseChartService } from '../services/chart-services/phase-chart.service';
+import { RcaChartService } from '../services/chart-services/rca-chart.service';
+import { RcaProjectChartService } from '../services/chart-services/rca-project-chart.service';
+import { ProjectRcaChartService } from '../services/chart-services/project-rca-chart.service';
 
 
 
@@ -17,30 +23,18 @@ export class StatisticsComponent implements OnInit {
 
   public generalLeftPane;
   public generalRightPane;
-  public columnChart;
-  public pieChart;
-  public stackedChart;
+  public criticalityChart;
+  public phaseChart;
+  public rcaChart;
+  public rcaProjectChart;
+  public projectRcaChart;
 
-  public tableChart =  {
-    chartType: 'Table',
-    dataTable: [
-      ['Department', 'Revenues', 'Another column', 'ColorFormat'],
-      ['Shoes for everyone who would like to purchase them in a very good day.', 10700, -100, 100],
-      ['Sports', -15400, 25, 500],
-      ['Toys', 12500, 40, 800],
-      ['Electronics', -2100, 889, 1000],
-      ['Food', 22600, 78, 1100],
-      ['Art', 1100, 42, 400]
-    ],
-    options: {
-      title: 'Releases', 
-      allowHtml: true,
-      alternatingRowStyle: true,
-      pageSize:10,
-      width:'100%'      
-    }
+  chartRequest={
+    release:null,
+    phase:null
   };
 
+  
   releases:any[]=[];
   phases:any[]=[];
 
@@ -53,19 +47,19 @@ export class StatisticsComponent implements OnInit {
      {label:'Clean',type:'reset'}
    ];
 
-  constructor(private releaseService:ReleasesService, private phasesService:PhasesService) { }
+  constructor(private releaseService:ReleasesService, 
+              private phasesService:PhasesService,
+              private criticalityChartService:CriticalityChartService,
+              private phaseChartService:PhaseChartService,
+              private rcaChartService:RcaChartService,
+              private rcaProjectChartService:RcaProjectChartService,
+              private projectRcaChartService:ProjectRcaChartService) { }
 
   ngOnInit() {
 
-    this.columnChart = this.loadColumnChart();
+    this.loadLeftCriticalityChartTab();
 
-    this.generalLeftPane = this.columnChart;
-
-    this.pieChart = this.loadPieChart();
-
-    this.generalRightPane = this.pieChart;
-
-    this.stackedChart = this.loadStackedChart();
+    this.loadRightRCAChartTab();
   
   
 
@@ -94,69 +88,112 @@ export class StatisticsComponent implements OnInit {
     );
   }
 
-  loadColumnChart(){
+  loadCriticalityChart(){
    return ChartFactory.getChartInstance('columnChart',
-    [
-    ['Defects', 'Number of Defects'],
-    ['Critical', 3],
-    ['High', 5],
-    ['Medium', 12],
-    ['Low',  6]     
-    ],
-    'Criticality title'
+    this.criticalityChart,
+    'Criticality'
     ).getChart();
   }
 
-  loadPieChart(){
+  loadPhaseChart(){
+    return ChartFactory.getChartInstance('columnChart',
+     this.phaseChart,
+     'Phase'
+     ).getChart();
+   }
+
+  loadRCAChart(){
     return ChartFactory.getChartInstance('pieChart',
-    [
-    ['Defects', 'Number of Defects'],
-    ['High', 4],
-    ['Medium', 12],
-    ['Low',  6],
-    ['Critical', 5],
-    ['Invalid', 7],
-    ['Closed', 15]    
-    ],
+    this.rcaChart,
     'Root Cause Analysis'
     ).getChart();
   }
 
-  loadStackedChart(){
+  loadRCAProjectChart(){
     return ChartFactory.getChartInstance('stackedChart',
-    [
-      ['Genre', 'Fantasy & Sci Fi', 'Romance', 'Mystery/Crime', 'General',
-       'Western', 'Literature', { role: 'annotation' } ],
-      ['2010', 10, 24, 20, 32, 18, 5, ''],
-      ['2020', 16, 22, 23, 30, 16, 9, ''],
-      ['2030', 28, 19, 29, 30, 12, 13, '']
-    ],
+     this.rcaProjectChart,
     'RCA Project'
     ).getChart();
   }
 
-  loadLeftColumnChartTab(){
-    this.generalLeftPane=this.loadColumnChart();
+  loadProjectRCAChart(){
+    return ChartFactory.getChartInstance('stackedChart',
+     this.projectRcaChart,
+    'Project RCA'
+    ).getChart();
   }
 
-  loadLeftPieChartTab(){
-    this.generalLeftPane=this.loadPieChart();
+  loadLeftCriticalityChartTab(){
+    let criticalityChart=this.loadCriticalityChart();
+    console.log("loadLeftColumnChartTab>columnChart>",criticalityChart);
+    this.criticalityChartService.getObject(this.chartRequest).subscribe(data=>{
+      this.criticalityChart = Object.create(criticalityChart);
+      this.criticalityChart.dataTable = data;
+      this.generalLeftPane=this.criticalityChart;
+    },error=>{
+       console.log(error);
+    });
+    
   }
 
-  loadRightPieChartTab(){
-    this.generalRightPane=this.loadPieChart();
+  loadLeftPhaseChartTab(){
+    let phaseChart=this.loadPhaseChart();
+    console.log("loadLeftPhaseChartTab>columnChart>",phaseChart);
+    this.phaseChartService.getObject(this.chartRequest).subscribe(data=>{
+      this.phaseChart = Object.create(phaseChart);
+      this.phaseChart.dataTable = data;
+      this.generalLeftPane=this.phaseChart;
+    },error=>{
+       console.log(error);
+    });
   }
 
-  loadRightColumnChartTab(){
-    this.generalRightPane=this.loadColumnChart();
+  loadRightRCAChartTab(){
+    let rcaChart=this.loadRCAChart();
+    console.log("loadRightRCAChartTab>rcaChart>",rcaChart);
+    this.rcaChartService.getObject(this.chartRequest).subscribe(data=>{
+      this.rcaChart = Object.create(rcaChart);
+      this.rcaChart.dataTable = data;
+      this.generalRightPane=this.rcaChart;
+    },error=>{
+       console.log(error);
+    });
   }
 
-  loadRightStackedChartTab(){
-    this.generalRightPane=this.loadStackedChart();
+  loadRightRCAProjectChartTab(){
+    let rcaProjectChart=this.loadRCAProjectChart();
+    console.log("loadRightRCAProjectChartTab>rcaProjectChart>",rcaProjectChart);
+    this.rcaProjectChartService.getObject(this.chartRequest).subscribe(data=>{
+      this.rcaProjectChart = Object.create(rcaProjectChart);
+      this.rcaProjectChart.dataTable = data;
+      this.generalRightPane=this.rcaProjectChart;
+    },error=>{
+       console.log(error);
+    });
+  }
+
+  loadRightProjectRCAChartTab(){
+    let projectRcaChart=this.loadProjectRCAChart();
+    console.log("loadRightProjectRCAChartTab>rcaProjectChart>",projectRcaChart);
+    this.projectRcaChartService.getObject(this.chartRequest).subscribe(data=>{
+      this.projectRcaChart = Object.create(projectRcaChart);
+      this.projectRcaChart.dataTable = data;
+      this.generalRightPane=this.projectRcaChart;
+    },error=>{
+       console.log(error);
+    });
   }
 
   onClick(event):void{
     console.log('onClick',event);
+    this.chartRequest.release=event.release;
+    this.chartRequest.phase=event.phase;
+    console.log("onClick>chartRequest>",this.chartRequest);
+    this.loadLeftCriticalityChartTab();
+    //this.loadLeftPhaseChartTab();
+    this.loadRightRCAChartTab();
+    //this.loadRightRCAProjectChartTab();
+    //this.loadRightProjectRCAChartTab();
   }
 
 }

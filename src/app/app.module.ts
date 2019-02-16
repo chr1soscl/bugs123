@@ -24,6 +24,7 @@ import { AuthGuard } from './services/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
+import { CriticalityChartService } from './services/chart-services/criticality-chart.service';
 
 export function jwtTokenGetter(){
     return localStorage.getItem('token');
@@ -61,6 +62,7 @@ export function jwtTokenGetter(){
     AuthGuard,
     JwtHelperService,
     UsersService,
+    CriticalityChartService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
