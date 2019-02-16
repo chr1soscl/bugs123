@@ -8,6 +8,6 @@ import { HttpClient } from '@angular/common/http';
 export class RcaProjectChartService extends DataService {
 
   constructor(http:HttpClient) {
-    super('http://localhost:3000/deyko/rcaprojectchart',http);
+    super('https://deyko.herokuapp.com/deyko/rcaprojectchart',http);
    }
 }

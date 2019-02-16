@@ -6,6 +6,6 @@ import { HttpClient } from '@angular/common/http';
 export class CriticalityChartService extends DataService {
 
   constructor(http:HttpClient) {
-    super('http://localhost:3000/deyko/criticalitychart',http);
+    super('https://deyko.herokuapp.com/deyko/criticalitychart',http);
    }
 }

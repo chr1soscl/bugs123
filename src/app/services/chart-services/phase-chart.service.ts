@@ -8,6 +8,6 @@ import { HttpClient } from '@angular/common/http';
 export class PhaseChartService extends DataService {
 
   constructor(http:HttpClient) {
-    super('http://localhost:3000/deyko/phasechart',http);
+    super('https://deyko.herokuapp.com/deyko/phasechart',http);
    }
 }
