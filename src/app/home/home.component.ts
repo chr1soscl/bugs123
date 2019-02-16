@@ -8,7 +8,7 @@ import { UsersService } from '../services/users.service';
 })
 export class HomeComponent implements OnInit {
 
-   dataResults:any[]=[];
+   dataResults:any;
    columns=["name","username","email","phone","website"];
 
    formFields:any[]=[
@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.userService.getAll().subscribe(
       data=>{
-        this.dataResults.push(data);
+        console.log(data);
+        this.dataResults=data;
       },
       error=>{
         console.log(error);
