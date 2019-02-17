@@ -1,0 +1,20 @@
+{
+    "Title": "Bugs",
+    "Loginpage": {
+        "user": "User",
+        "password": "Password",
+        "login":"Sign-in"
+    },
+    "Homepage": {
+        "welcome": "Welcome to Bugs123!",
+        "usersearch":"User search"
+    },
+    "Navigationpage":{
+        "home":"Home",
+        "statistics":"Statistics",
+        "system":"System",
+        "about":"About",
+        "logout":"Logout",
+        "search":"Search"
+    }
+}

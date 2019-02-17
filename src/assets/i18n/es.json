@@ -1,0 +1,20 @@
+{
+    "Title": "Bugs",
+    "Loginpage": {
+        "user": "Usuario",
+        "password": "Contraseña",
+        "login":"Entrar"
+    },
+     "Homepage": {
+        "welcome": "Bienvenido a Bugs123!",
+        "usersearch":"Busqueda de usuario"
+    },
+    "Navigationpage":{
+        "home":"Bienvenido",
+        "statistics":"Estadisticas",
+        "system":"Sistema",
+        "about":"Acerca de",
+        "logout":"Salir",
+        "search":"Buscar"
+    }
+}

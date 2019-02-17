@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,14 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'bugs123';
 
-    constructor(public authService:AuthService){}
+    constructor(public authService:AuthService,
+                private translate: TranslateService){
+                  translate.setDefaultLang('en');
+                }
+
+  
+    switchLanguage(language: string) {
+      this.translate.use(language);
+    }
+
 }

@@ -9,29 +9,44 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" routerLink="/home" skipLocationChange>
-          Home <i class="fa fa-home"></i><span class="sr-only">(current)</span></a>
+          <div>
+              {{ 'Navigationpage.home' | translate }} <i class="fa fa-home"></i>
+          </div> 
+          <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/statistics" skipLocationChange>
-          Statistics <i class="fa fa-pie-chart"></i></a>
+          <div>
+              {{ 'Navigationpage.statistics' | translate }} <i class="fa fa-pie-chart"></i>
+          </div>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/systemdata" skipLocationChange>
-          System <i class="fa fa-table"></i></a>
+          <div>
+              {{ 'Navigationpage.system' | translate }} <i class="fa fa-table"></i>
+          </div>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/about" skipLocationChange>
-          About <i class="fa fa-address-book-o"></i></a>
+          <div>
+              {{ 'Navigationpage.about' | translate }} <i class="fa fa-address-book-o"></i>
+          </div>
+        </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="auth.logoutUser()" routerLink="/bugs123" skipLocationChange> 
-          Log out <i class="fa fa-sign-out"></i></a>
+          <div>
+              {{ 'Navigationpage.logout' | translate }} <i class="fa fa-sign-out"></i>
+          </div>
+        </a>
       </li>
     </ul>
     
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search </button>
+      <input class="form-control mr-sm-2" type="text" placeholder="{{ 'Navigationpage.search' | translate }}">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">{{ 'Navigationpage.search' | translate }} </button>
       
     </form>
   </div>

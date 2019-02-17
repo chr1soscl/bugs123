@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
    formFields:any[]=[
     {id:'id',label:'Id',type:'text',validators:['required','max|10']},
-     {label:'Look up',type:'button'},
+     {label:'Search',type:'button'},
      {label:'Clean',type:'reset'}
    ];
 

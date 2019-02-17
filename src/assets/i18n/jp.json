@@ -1,0 +1,20 @@
+{
+    "Title": "Bugs",
+    "Loginpage": {
+        "user": "ユーザー",
+        "password": "パスワード",
+        "login":"ログイン"
+    },
+     "Homepage": {
+        "welcome": "Bugs123へようこそ!",
+        "usersearch":"ユーザー検索"
+    },
+    "Navigationpage":{
+        "home":"ホーム",
+        "statistics":"統計",
+        "system":"システム",
+        "about":"について",
+        "logout":"ログアウト",
+        "search":"探索"
+    }
+}
