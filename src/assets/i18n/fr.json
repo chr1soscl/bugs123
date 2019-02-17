@@ -30,5 +30,8 @@
     "Systempage":{
         "projects":"Les Projets",
         "releases":"Versions"
+    },
+    "Aboutpage":{
+        "leaders":"Le bon chef d'équipe louent en public et corrigent en privé."
     }
 }

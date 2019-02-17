@@ -21,14 +21,17 @@
         "search":"探索"
     },
     "Statisticspage":{
-        "rca-long":"根本原因分析",
+        "rca-long":"根本原因分析「RCA」",
         "criticality":"重要性",
         "phase":"段階",
-        "rca-short":"根本原因分析",
+        "rca-short":"RCA",
         "project":"プロジェクト"
     },
     "Systempage":{
         "projects":"プロジェクト",
         "releases":"リリース"
+    },
+    "Aboutpage":{
+        "leaders":"優秀な指導者たちは公の場で賞賛し、私的な場で正しい。"
     }
 }

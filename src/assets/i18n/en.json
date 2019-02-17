@@ -30,5 +30,8 @@
     "Systempage":{
         "projects":"Projects",
         "releases":"Releases"
+    },
+    "Aboutpage":{
+        "leaders":"Good leaders praise in public and correct in private."
     }
 }

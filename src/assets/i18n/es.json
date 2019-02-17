@@ -30,5 +30,8 @@
     "Systempage":{
         "projects":"Proyectos",
         "releases":"Lanzamientos"
+    },
+    "Aboutpage":{
+        "leaders":"Los buenos líderes alaban en público y corrigen en privado."
     }
 }
