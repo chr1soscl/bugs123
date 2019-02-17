@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
 <div *ngIf="!authService.loggedIn()">
-    <span class="flag-icon flag-icon-us" (click)="switchLanguage('en')"></span>
+    <span class="flag-icon flag-icon-gb" (click)="switchLanguage('en')"></span>
     <span class="flag-icon flag-icon-fr" (click)="switchLanguage('fr')"></span>
     <span class="flag-icon flag-icon-es" (click)="switchLanguage('es')"></span>
     <span class="flag-icon flag-icon-jp" (click)="switchLanguage('jp')"></span>
-    
+    <span class="flag-icon flag-icon-cn" (click)="switchLanguage('jp')"></span>
 </div>
 <router-outlet></router-outlet>

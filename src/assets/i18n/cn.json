@@ -1,0 +1,37 @@
+{
+    "Title": "Bugs",
+    "Loginpage": {
+        "user": "用户",
+        "password": "密码",
+        "login":"登录",
+        "login-fail":"用户和密码组合无效。",
+        "user-required":"用户是必需的。",
+        "password-required":"密码是必需的。"
+    },
+     "Homepage": {
+        "welcome": "欢迎来到Bugs123!",
+        "usersearch":"用户搜索"
+    },
+    "Navigationpage":{
+        "home":"主页",
+        "statistics":"统计",
+        "system":"系统",
+        "about":"关于这个软件",
+        "logout":"注销帐户",
+        "search":"搜索"
+    },
+    "Statisticspage":{
+        "rca-long":"根本原因分析「RCA」",
+        "criticality":"临界",
+        "phase":"阶段",
+        "rca-short":"RCA",
+        "project":"项目"
+    },
+    "Systempage":{
+        "projects":"项目",
+        "releases":"软件发布"
+    },
+    "Aboutpage":{
+        "leaders":"Good leaders praise in public and correct in private."
+    }
+}

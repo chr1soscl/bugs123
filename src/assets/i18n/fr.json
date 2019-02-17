@@ -23,13 +23,13 @@
     "Statisticspage":{
         "rca-long":"Analyse de la Cause Originelle",
         "criticality":"La Criticité",
-        "phase":"Phase",
+        "phase":"La Phase",
         "rca-short":"ACO",
         "project":"Projet"
     },
     "Systempage":{
         "projects":"Les Projets",
-        "releases":"Versions"
+        "releases":"Les Versions"
     },
     "Aboutpage":{
         "leaders":"Le bon chef d'équipe louent en public et corrigent en privé."
