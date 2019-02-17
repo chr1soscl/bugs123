@@ -3,7 +3,10 @@
     "Loginpage": {
         "user": "S'identifier",
         "password": "Mont de passe",
-        "login":"Identifiez-vous"
+        "login":"Identifiez-vous",
+        "login-fail":"Les combinaisons d'identifier et mot de passe ne sont pas valides.",
+        "user-required":"S'identifier est requis.",
+        "password-required":"Mont de passe es requis."
     },
      "Homepage": {
         "welcome": "Bienvenue a Bugs123!",
@@ -16,5 +19,16 @@
         "about":"Au sujet de",
         "logout":"Se déconnecter",
         "search":"Rechercher"
+    },
+    "Statisticspage":{
+        "rca-long":"Analyse de la Cause Originelle",
+        "criticality":"La Criticité",
+        "phase":"Phase",
+        "rca-short":"ACO",
+        "project":"Projet"
+    },
+    "Systempage":{
+        "projects":"Les Projets",
+        "releases":"Versions"
     }
 }

@@ -3,7 +3,10 @@
     "Loginpage": {
         "user": "Usuario",
         "password": "Contraseña",
-        "login":"Entrar"
+        "login":"Entrar",
+        "login-fail":"La combinacion de usuario y contraseña es invalida.",
+        "user-required":"El Usuario es requerido.",
+        "password-required":"La Contraseña es requerida."
     },
      "Homepage": {
         "welcome": "Bienvenido a Bugs123!",
@@ -16,5 +19,16 @@
         "about":"Acerca de",
         "logout":"Salir",
         "search":"Buscar"
+    },
+    "Statisticspage":{
+        "rca-long":"Análisis de la Causa Raíz",
+        "criticality":"Criticidad",
+        "phase":"Fase",
+        "rca-short":"ACR",
+        "project":"Proyecto"
+    },
+    "Systempage":{
+        "projects":"Proyectos",
+        "releases":"Lanzamientos"
     }
 }

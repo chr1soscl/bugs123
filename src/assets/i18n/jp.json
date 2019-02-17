@@ -3,7 +3,10 @@
     "Loginpage": {
         "user": "ユーザー",
         "password": "パスワード",
-        "login":"ログイン"
+        "login":"ログイン",
+        "login-fail":"ユーザーとパスワードの組み合わせは無効です。",
+        "user-required":"ユーザーは必須です。",
+        "password-required":"パスワードは必須です。"
     },
      "Homepage": {
         "welcome": "Bugs123へようこそ!",
@@ -16,5 +19,16 @@
         "about":"について",
         "logout":"ログアウト",
         "search":"探索"
+    },
+    "Statisticspage":{
+        "rca-long":"根本原因分析",
+        "criticality":"重要性",
+        "phase":"段階",
+        "rca-short":"根本原因分析",
+        "project":"プロジェクト"
+    },
+    "Systempage":{
+        "projects":"プロジェクト",
+        "releases":"リリース"
     }
 }

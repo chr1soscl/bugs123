@@ -3,7 +3,10 @@
     "Loginpage": {
         "user": "User",
         "password": "Password",
-        "login":"Sign-in"
+        "login":"Sign-in",
+        "login-fail":"User and password combinations are invalid.",
+        "user-required":"User is required.",
+        "password-required":"Password is required."
     },
     "Homepage": {
         "welcome": "Welcome to Bugs123!",
@@ -16,5 +19,16 @@
         "about":"About",
         "logout":"Logout",
         "search":"Search"
+    },
+    "Statisticspage":{
+        "rca-long":"Root Cause Analysis",
+        "criticality":"Criticality",
+        "phase":"Phase",
+        "rca-short":"RCA",
+        "project":"Project"
+    },
+    "Systempage":{
+        "projects":"Projects",
+        "releases":"Releases"
     }
 }

@@ -9,37 +9,27 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" routerLink="/home" skipLocationChange>
-          <div>
               {{ 'Navigationpage.home' | translate }} <i class="fa fa-home"></i>
-          </div> 
           <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/statistics" skipLocationChange>
-          <div>
               {{ 'Navigationpage.statistics' | translate }} <i class="fa fa-pie-chart"></i>
-          </div>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/systemdata" skipLocationChange>
-          <div>
               {{ 'Navigationpage.system' | translate }} <i class="fa fa-table"></i>
-          </div>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/about" skipLocationChange>
-          <div>
               {{ 'Navigationpage.about' | translate }} <i class="fa fa-address-book-o"></i>
-          </div>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="auth.logoutUser()" routerLink="/bugs123" skipLocationChange> 
-          <div>
               {{ 'Navigationpage.logout' | translate }} <i class="fa fa-sign-out"></i>
-          </div>
         </a>
       </li>
     </ul>

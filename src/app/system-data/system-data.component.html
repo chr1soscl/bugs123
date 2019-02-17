@@ -2,10 +2,14 @@
 
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link show active" data-toggle="tab" href="#releases" (click)="loadReleases()">Releases</a>
+    <a class="nav-link show active" data-toggle="tab" href="#releases" (click)="loadReleases()">
+        {{ 'Systempage.releases' | translate }}
+    </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link show" data-toggle="tab" href="#projects" (click)="loadProjects()">Projects</a>
+    <a class="nav-link show" data-toggle="tab" href="#projects" (click)="loadProjects()">
+        {{ 'Systempage.projects' | translate }}
+    </a>
   </li>
   <li class="nav-item">
     <a class="nav-link disabled">Disabled</a>

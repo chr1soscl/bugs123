@@ -1,7 +1,9 @@
 <div class="jumbotron">
 
   <div class="card border-info mb-3" style="max-width: 100%;">
-    <div class="card-header">Root Cause Analysis</div>
+    <div class="card-header">
+        {{ 'Statisticspage.rca-long' | translate }}
+    </div>
     <div class="card-body">
       <lib-search-form
       (onSubmit)="onClick($event)"
@@ -23,10 +25,14 @@
         
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#criticalityTab" (click)="loadLeftCriticalityChartTab()">Criticality</a>
+                  <a class="nav-link active" data-toggle="tab" href="#criticalityTab" (click)="loadLeftCriticalityChartTab()">
+                      {{ 'Statisticspage.criticality' | translate }}
+                  </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#criticalityTab" (click)="loadLeftPhaseChartTab()">Phase</a>
+                  <a class="nav-link" data-toggle="tab" href="#criticalityTab" (click)="loadLeftPhaseChartTab()">
+                      {{ 'Statisticspage.phase' | translate }}
+                  </a>
                 </li>
               </ul>
               <div id="myCriticality" class="tab-content">
@@ -41,13 +47,19 @@
 
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#rcaTab" (click)="loadRightRCAChartTab()">RCA</a>
+                  <a class="nav-link active" data-toggle="tab" href="#rcaTab" (click)="loadRightRCAChartTab()">
+                      {{ 'Statisticspage.rca-long' | translate }}
+                  </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadRightRCAProjectChartTab()">RCA Project</a>
+                  <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadRightRCAProjectChartTab()">
+                      {{ 'Statisticspage.rca-short' | translate }} {{ 'Statisticspage.project' | translate }}
+                  </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadRightProjectRCAChartTab()">Project RCA</a>
+                    <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadRightProjectRCAChartTab()">
+                        {{ 'Statisticspage.project' | translate }} {{ 'Statisticspage.rca-short' | translate }}
+                    </a>
                   </li>
               </ul>
               <div id="myRCAs" class="tab-content">
