@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" *ngIf="auth.loggedIn()">
-  <a class="navbar-brand" routerLink="/home">Bugs123</a>
+  <a class="navbar-brand" routerLink="/home" skipLocationChange>
+    Bugs123 <i class="fa fa-bug" aria-hidden="true"></i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,25 +8,30 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/home">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/home" skipLocationChange>
+          Home <i class="fa fa-home"></i><span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/statistics">Statistics</a>
+        <a class="nav-link" routerLink="/statistics" skipLocationChange>
+          Statistics <i class="fa fa-pie-chart"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/systemdata">System Information</a>
+        <a class="nav-link" routerLink="/systemdata" skipLocationChange>
+          System Information <i class="fa fa-table"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/about">About</a>
+        <a class="nav-link" routerLink="/about" skipLocationChange>
+          About <i class="fa fa-address-book-o"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="auth.logoutUser()" routerLink="/bugs123">Log out</a>
+        <a class="nav-link" (click)="auth.logoutUser()" routerLink="/bugs123" skipLocationChange> 
+          Log out <i class="fa fa-sign-out"></i></a>
       </li>
     </ul>
     
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search </button>
       
     </form>
   </div>

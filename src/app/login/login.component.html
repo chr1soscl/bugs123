@@ -3,19 +3,21 @@
     <div class="card bg-light mb-2" style="max-width: 60rem;">
       <div class="card-header p-2">
         <h3 class="mb-2">
-          Bugs123
+          <i class="fa fa-bug" aria-hidden="true"></i> Bugs123
         </h3>
       </div>
       <div class="card-body">
         <form [formGroup]="form" class="form p-2">
           <div *ngIf="form.errors" class="alert alert-danger">Login and password combinations are invalid</div>
           <div class="form-group p-2">
-            <label for="user_login">User Login:</label>
+            <label for="user_login">
+              <i class="fa fa-user-circle-o" aria-hidden="true"></i> User Login:</label>
             <input formControlName="user_login" name="user_login" type="text" class="form-control rounded-2" required>
           </div>
           <div class="alert alert-danger" *ngIf="form.get('user_login').touched && form.get('user_login').invalid">User Login is required</div>
           <div class="form-group p-2">
-            <label for="user_password">Password:</label>
+            <label for="user_password">
+              <i class="fa fa-key" aria-hidden="true"></i> Password:</label>
             <input formControlName="user_password" (keyup.enter)="loginUser()" name="user_password" type="password" class="form-control rounded2" required>
           </div>
           <div class="alert alert-danger" *ngIf="form.get('user_password').touched && form.get('user_password').invalid">User Password is required</div>
