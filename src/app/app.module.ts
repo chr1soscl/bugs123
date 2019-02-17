@@ -15,7 +15,6 @@ import { GenericsModule } from 'projects/generics/src/public_api';
 //Component
 import { LoginComponent } from './login/login.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { BugDetailsComponent } from './bug-details/bug-details.component';
 import { SystemDataComponent } from './system-data/system-data.component';
 import { BugsDataComponent } from './bugs-data/bugs-data.component';
 //Guard
@@ -25,6 +24,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
 import { CriticalityChartService } from './services/chart-services/criticality-chart.service';
+import { AboutComponent } from './about/about.component';
 
 export function jwtTokenGetter(){
     return localStorage.getItem('token');
@@ -37,9 +37,9 @@ export function jwtTokenGetter(){
     HomeComponent,
     LoginComponent,
     StatisticsComponent,
-    BugDetailsComponent,
     SystemDataComponent,
-    BugsDataComponent
+    BugsDataComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

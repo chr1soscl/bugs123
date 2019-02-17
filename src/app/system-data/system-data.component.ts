@@ -13,7 +13,7 @@ export class SystemDataComponent implements OnInit  {
 
   releases:any[]=[['Id','Name','Description','Type','Year','Month','Active']];
 
-  projects:any[];
+  projects:any[]=[['Id','Code','Name','Description','Active']];
 
    public releasesTableChart =  {
     chartType: 'Table',

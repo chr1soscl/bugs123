@@ -9,6 +9,7 @@ import { SystemDataComponent } from './system-data/system-data.component';
 import { BugsDataComponent } from './bugs-data/bugs-data.component';
 //Guards
 import { AuthGuard } from './services/auth.guard';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: "home", component: HomeComponent, canActivate:[AuthGuard] },
   { path: "statistics", component: StatisticsComponent, canActivate:[AuthGuard] },
   { path: "systemdata", component: SystemDataComponent, canActivate:[AuthGuard] },
-  { path: "bugsdata", component: BugsDataComponent, canActivate:[AuthGuard] }
+  { path: "bugsdata", component: BugsDataComponent, canActivate:[AuthGuard] },
+  { path: "about", component: AboutComponent, canActivate:[AuthGuard] } 
 ];
 
 @NgModule({
