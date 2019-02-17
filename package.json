@@ -33,6 +33,7 @@
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
+    "flag-icon-css": "^3.2.1",
     "font-awesome": "^4.7.0",
     "grunt": "^1.0.3",
     "jquery": "^3.3.1",
