@@ -4,4 +4,7 @@ span.flag-icon{
     height: 25px;
     border-radius: 5px;
     padding: 10px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
 }
