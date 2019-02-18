@@ -1,9 +1,16 @@
 <app-navbar></app-navbar>
-<div *ngIf="!authService.loggedIn()" style="display: inline-block; text-align: right; width: 100%">
-    <span class="flag-icon flag-icon-gb" (click)="switchLanguage('en')"></span>
-    <span class="flag-icon flag-icon-fr" (click)="switchLanguage('fr')"></span>
-    <span class="flag-icon flag-icon-es" (click)="switchLanguage('es')"></span>
-    <span class="flag-icon flag-icon-jp" (click)="switchLanguage('jp')"></span>
-    <span class="flag-icon flag-icon-cn" (click)="switchLanguage('cn')"></span>
+<div *ngIf="!authService.loggedIn()" style="display: inline-block; text-align: right; width: 100%; padding: 10px">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-globe"></i> Change Language
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" (click)="switchLanguage('en')">English</a>
+          <a class="dropdown-item" (click)="switchLanguage('fr')">Français</a>
+          <a class="dropdown-item" (click)="switchLanguage('es')">Español</a>
+          <a class="dropdown-item" (click)="switchLanguage('jp')">日本語</a>
+          <a class="dropdown-item" (click)="switchLanguage('cn')">中文</a>
+        </div>
+      </div>
 </div>
 <router-outlet></router-outlet>
