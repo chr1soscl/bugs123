@@ -32,6 +32,9 @@
         "releases":"Les Versions"
     },
     "Aboutpage":{
-        "leaders":"Le bon chef d'équipe louent en public et corrigent en privé."
+        "leaders":"Good leaders praise in public and correct in private.",
+        "about1":"Welcome to my learning project Bugs123. I created Bugs123 for educative purposes while I was learning Angular and Node.js with Express.",
+        "about2":"Often, as a developer, team leader or manager, we do our best to keep high levels of quality. We try to generate as few bugs as possible, but sometimes it is difficult to perceive bugs impact in our projects in real time and we may not be able to visualize the most affected areas.",
+        "about3":"Bugs123 is a statistic monitoring tool that helps us visualize the quality levels of our projects in real time, allowing us to take corrective measures inside our team. Once we learn what type of bugs are more prevalent in real time, we can then focus on correcting the processes in the affected areas."
     }
 }

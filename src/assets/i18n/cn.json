@@ -32,6 +32,9 @@
         "releases":"软件发布"
     },
     "Aboutpage":{
-        "leaders":"Good leaders praise in public and correct in private."
+        "leaders":"Good leaders praise in public and correct in private.",
+        "about1":"欢迎访问我的学习项目 Bugs123。我在学习 Angular 和 Node.Js with Express 时创建了用于教育目的的 Bugs123。",
+        "about2":"通常，作为一位开发人员、团队领导或经理，我们会尽力保持高质量。我们试图尽可能少地生成 bugs，但有时很难实时察觉 bugs 在项目中的影响，同时，我们可能无法可视化受影响最大的区域。",
+        "about3":"Bugs123 是一个基于统计的监控工具，它可以实时地帮助我们可视化项目的质量水平，允许我们在团队内部采取纠正措施。一旦我们实时了解了什么类型的错误更为普遍，我们就可以集中精力纠正受影响区域的流程。"
     }
 }
