@@ -33,8 +33,8 @@
     },
     "Aboutpage":{
         "leaders":"Good leaders praise in public and correct in private.",
-        "about1":"Welcome to my learning project Bugs123. I created Bugs123 for educative purposes while I was learning Angular and Node.js with Express.",
-        "about2":"Often, as a developer, team leader or manager, we do our best to keep high levels of quality. We try to generate as few bugs as possible, but sometimes it is difficult to perceive bugs impact in our projects in real time and we may not be able to visualize the most affected areas.",
-        "about3":"Bugs123 is a statistic monitoring tool that helps us visualize the quality levels of our projects in real time, allowing us to take corrective measures inside our team. Once we learn what type of bugs are more prevalent in real time, we can then focus on correcting the processes in the affected areas."
+        "about1":"Bienvenue dans mon projet d’apprentissage Bugs123. J'ai créé Bugs123 à des fins éducatives pendant que j'apprenais Angular et Node.js avec Express.",
+        "about2":"Souvent, en tant que développeur, chef d'équipe ou chef de projet, nous faisons de notre mieux pour conserver un niveau de qualité élevé. Nous essayons de générer le moins de défauts possible, mais il est parfois difficile de percevoir l'impact des défauts dans nos projets en temps réel et nous ne pourrons peut-être pas visualiser les zones les plus touchées.",
+        "about3":"Bugs123 est un outil de suivi statistique qui nous aide à visualiser en temps réel le niveau de qualité de nos projets et à prendre des mesures correctives au sein de notre équipe. Une fois que nous avons appris quel type de défauts est plus répandu en temps réel, nous pouvons alors nous concentrer sur la correction des processus dans les zones touchées."
     }
 }
