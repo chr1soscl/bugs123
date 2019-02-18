@@ -1,9 +1,8 @@
 /*my css*/
 span.flag-icon{
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     border-radius: 5px;
-    padding: 10px;
     border-style: solid;
     border-color: black;
     border-width: 1px;

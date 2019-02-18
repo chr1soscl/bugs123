@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div *ngIf="!authService.loggedIn()">
+<div *ngIf="!authService.loggedIn()" style="display: inline-block; text-align: right; width: 100%">
     <span class="flag-icon flag-icon-gb" (click)="switchLanguage('en')"></span>
     <span class="flag-icon flag-icon-fr" (click)="switchLanguage('fr')"></span>
     <span class="flag-icon flag-icon-es" (click)="switchLanguage('es')"></span>
