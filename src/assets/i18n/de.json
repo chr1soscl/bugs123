@@ -1,7 +1,7 @@
 {
     "Title": "Bugs",
     "Loginpage": {
-        "user": "Benutzer-Anmeldung",
+        "user": "Benutzer",
         "password": "Passwort",
         "login":"Anmelden",
         "login-fail":"Benutzer- und Passwortkombinationen sind ungültig.",
