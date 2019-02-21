@@ -147,7 +147,7 @@ export class StatisticsComponent implements OnInit {
     if(side==='left'){
       this.activeLeftPane=number;
     }
-    else if(side==='left'){
+    else if(side==='right'){
       this.activeRightPane=number;
     }
   }
@@ -178,16 +178,18 @@ export class StatisticsComponent implements OnInit {
     this.chartRequest.release=event.release;
     this.chartRequest.phase=event.phase;
     console.log("onClick>chartRequest>",this.chartRequest);
+    
     if(this.activeLeftPane===1)
       this.loadChartTab('left','criticality','Criticality',1,this.criticalityChartService);
-    if(this.activeLeftPane===2)
+    else if(this.activeLeftPane===2)
       this.loadChartTab('left','phase','Phase',2,this.phaseChartService);
+    
     if(this.activeRightPane===1)
       this.loadChartTab('right','rca','Root Cause Analysis',1,this.rcaChartService);
-    if(this.activeRightPane===2)
-    this.loadChartTab('right','rcaproject','RCA Project',2,this.rcaProjectChartService);
-    if(this.activeRightPane===3)
-    this.loadChartTab('right','projectrca','Project RCA',3,this.projectRcaChartService);
+    else if(this.activeRightPane===2)
+      this.loadChartTab('right','rcaproject','RCA Project',2,this.rcaProjectChartService);
+    else if(this.activeRightPane===3)
+      this.loadChartTab('right','projectrca','Project RCA',3,this.projectRcaChartService);
   }
 
 }
