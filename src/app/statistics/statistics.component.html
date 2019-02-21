@@ -25,12 +25,12 @@
         
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#criticalityTab" (click)="loadLeftCriticalityChartTab()">
+                  <a class="nav-link active" data-toggle="tab" href="#criticalityTab" (click)="loadChartTab('left','criticality','Criticality',1,criticalityChartService)">
                       {{ 'Statisticspage.criticality' | translate }}
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#criticalityTab" (click)="loadLeftPhaseChartTab()">
+                  <a class="nav-link" data-toggle="tab" href="#criticalityTab" (click)="loadChartTab('left','phase','Phase',2,phaseChartService)">
                       {{ 'Statisticspage.phase' | translate }}
                   </a>
                 </li>
@@ -47,17 +47,17 @@
 
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#rcaTab" (click)="loadRightRCAChartTab()">
+                  <a class="nav-link active" data-toggle="tab" href="#rcaTab" (click)="loadChartTab('right','rca','Root Cause Analysis',1,rcaChartService)">
                       {{ 'Statisticspage.rca-long' | translate }}
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadRightRCAProjectChartTab()">
+                  <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadChartTab('right','rcaproject','RCA Project',2,rcaProjectChartService)">
                       {{ 'Statisticspage.rca-short' | translate }} {{ 'Statisticspage.project' | translate }}
                   </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadRightProjectRCAChartTab()">
+                    <a class="nav-link" data-toggle="tab" href="#rcaTab" (click)="loadChartTab('right','projectrca','Project RCA',3,projectRcaChartService)">
                         {{ 'Statisticspage.project' | translate }} {{ 'Statisticspage.rca-short' | translate }}
                     </a>
                   </li>

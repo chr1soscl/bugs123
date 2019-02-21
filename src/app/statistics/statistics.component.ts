@@ -11,6 +11,7 @@ import { PhaseChartService } from '../services/chart-services/phase-chart.servic
 import { RcaChartService } from '../services/chart-services/rca-chart.service';
 import { RcaProjectChartService } from '../services/chart-services/rca-project-chart.service';
 import { ProjectRcaChartService } from '../services/chart-services/project-rca-chart.service';
+import { DataService } from 'projects/generics/src/public_api';
 
 
 
@@ -51,16 +52,16 @@ export class StatisticsComponent implements OnInit {
 
   constructor(private releaseService:ReleasesService, 
               private phasesService:PhasesService,
-              private criticalityChartService:CriticalityChartService,
-              private phaseChartService:PhaseChartService,
-              private rcaChartService:RcaChartService,
-              private rcaProjectChartService:RcaProjectChartService,
-              private projectRcaChartService:ProjectRcaChartService) { }
+              public criticalityChartService:CriticalityChartService,
+              public phaseChartService:PhaseChartService,
+              public rcaChartService:RcaChartService,
+              public rcaProjectChartService:RcaProjectChartService,
+              public projectRcaChartService:ProjectRcaChartService) { }
 
   ngOnInit() {
 
-    this.loadLeftCriticalityChartTab();
-    this.loadRightRCAChartTab();
+    this.loadChartTab('left','criticality','Criticality',1,this.criticalityChartService);
+    this.loadChartTab('right','rca','Root Cause Analysis',1,this.rcaChartService);
   
     this.releaseService.getAll().subscribe(
       releases=>{
@@ -87,106 +88,90 @@ export class StatisticsComponent implements OnInit {
     );
   }
 
-  loadCriticalityChart(){
+  loadCriticalityChart(title:string){
    return ChartFactory.getChartInstance('columnChart',
     this.criticalityChart,
-    'Criticality'
+    title
     ).getChart();
   }
 
-  loadPhaseChart(){
+  loadPhaseChart(title:string){
     return ChartFactory.getChartInstance('columnChart',
      this.phaseChart,
-     'Phase'
+     title
      ).getChart();
    }
 
-  loadRCAChart(){
+  loadRCAChart(title:string){
     return ChartFactory.getChartInstance('pieChart',
     this.rcaChart,
-    'Root Cause Analysis'
+    title
     ).getChart();
   }
 
-  loadRCAProjectChart(){
+  loadRCAProjectChart(title:string){
     return ChartFactory.getChartInstance('stackedChart',
      this.rcaProjectChart,
-    'RCA Project'
+     title
     ).getChart();
   }
 
-  loadProjectRCAChart(){
+  loadProjectRCAChart(title:string){
     return ChartFactory.getChartInstance('stackedChart',
      this.projectRcaChart,
-    'Project RCA'
+     title
     ).getChart();
   }
 
-  loadLeftCriticalityChartTab(){
-    let criticalityChart=this.loadCriticalityChart();
-    this.activeLeftPane=1;
-    console.log("loadLeftColumnChartTab>columnChart>",criticalityChart);
-    this.criticalityChartService.getObject(this.chartRequest).subscribe(data=>{
-      this.criticalityChart = Object.create(criticalityChart);
-      this.criticalityChart.dataTable = data;
-      this.generalLeftPane=this.criticalityChart;
-    },error=>{
-       console.log(error);
-    });
-    
+  loadChart(name:string,title:string):GoogleChartInterface{
+    if(name==='criticality')
+        return this.loadCriticalityChart(title);
+    else if(name==='phase')
+        return this.loadPhaseChart(title);
+    else if(name==='rca')
+        return this.loadRCAChart(title);
+    else if(name==='rcaproject')
+        return this.loadRCAProjectChart(title);
+    else if(name==='projectrca')
+        return this.loadProjectRCAChart(title);
   }
 
-  loadLeftPhaseChartTab(){
-    let phaseChart=this.loadPhaseChart();
-    this.activeLeftPane=2;
-    console.log("loadLeftPhaseChartTab>columnChart>",phaseChart);
-    this.phaseChartService.getObject(this.chartRequest).subscribe(data=>{
-      this.phaseChart = Object.create(phaseChart);
-      this.phaseChart.dataTable = data;
-      this.generalLeftPane=this.phaseChart;
-    },error=>{
-       console.log(error);
-    });
+  setGeneralPane(side:string,chart:GoogleChartInterface){
+    if(side==='left')
+      this.generalLeftPane=chart;
+    else if(side==='right')
+      this.generalRightPane=chart;
   }
 
-  loadRightRCAChartTab(){
-    let rcaChart=this.loadRCAChart();
-    this.activeRightPane=1;
-    console.log("loadRightRCAChartTab>rcaChart>",rcaChart);
-    this.rcaChartService.getObject(this.chartRequest).subscribe(data=>{
-      this.rcaChart = Object.create(rcaChart);
-      this.rcaChart.dataTable = data;
-      this.generalRightPane=this.rcaChart;
-    },error=>{
-       console.log(error);
-    });
+  setActivePane(side:string,number:number){
+    if(side==='left'){
+      this.activeLeftPane=number;
+    }
+    else if(side==='left'){
+      this.activeRightPane=number;
+    }
   }
 
-  loadRightRCAProjectChartTab(){
-    let rcaProjectChart=this.loadRCAProjectChart();
-    this.activeRightPane=2;
-    console.log("loadRightRCAProjectChartTab>rcaProjectChart>",rcaProjectChart);
-    this.rcaProjectChartService.getObject(this.chartRequest).subscribe(data=>{
-      this.rcaProjectChart = Object.create(rcaProjectChart);
-      this.rcaProjectChart.dataTable = data;
-      this.generalRightPane=this.rcaProjectChart;
-    },error=>{
-       console.log(error);
-    });
+  loadChartTab(side:string,
+               chartName:string,
+               chartTitle:string,
+               chartNumber:number,
+               dataService:DataService){
+    let chart=this.loadChart(chartName,chartTitle);
+    this.setActivePane(side,chartNumber);
+    dataService.getObject(this.chartRequest).subscribe(
+      data=>{
+            chart = Object.create(chart);
+            chart.dataTable = data;
+            this.setGeneralPane(side,chart);
+      },
+      error=>{
+        console.log(error);
+      }
+    );
   }
 
-  loadRightProjectRCAChartTab(){
-    let projectRcaChart=this.loadProjectRCAChart();
-    this.activeRightPane=3;
-    console.log("loadRightProjectRCAChartTab>rcaProjectChart>",projectRcaChart);
-    this.projectRcaChartService.getObject(this.chartRequest).subscribe(data=>{
-      this.projectRcaChart = Object.create(projectRcaChart);
-      this.projectRcaChart.dataTable = data;
-      this.generalRightPane=this.projectRcaChart;
-    },error=>{
-       console.log(error);
-    });
-  }
+  
 
   onClick(event):void{
     console.log('onClick',event);
@@ -194,15 +179,15 @@ export class StatisticsComponent implements OnInit {
     this.chartRequest.phase=event.phase;
     console.log("onClick>chartRequest>",this.chartRequest);
     if(this.activeLeftPane===1)
-      this.loadLeftCriticalityChartTab();
+      this.loadChartTab('left','criticality','Criticality',1,this.criticalityChartService);
     if(this.activeLeftPane===2)
-      this.loadLeftPhaseChartTab();
+      this.loadChartTab('left','phase','Phase',2,this.phaseChartService);
     if(this.activeRightPane===1)
-      this.loadRightRCAChartTab();
+      this.loadChartTab('right','rca','Root Cause Analysis',1,this.rcaChartService);
     if(this.activeRightPane===2)
-      this.loadRightRCAProjectChartTab();
+    this.loadChartTab('right','rcaproject','RCA Project',2,this.rcaProjectChartService);
     if(this.activeRightPane===3)
-      this.loadRightProjectRCAChartTab();
+    this.loadChartTab('right','projectrca','Project RCA',3,this.projectRcaChartService);
   }
 
 }
