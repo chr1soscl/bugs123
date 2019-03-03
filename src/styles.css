@@ -1,2 +1,6 @@
 @import '~font-awesome/css/font-awesome.css';
 
+.card-header {
+  background-color: rgb(35, 106, 172);
+  color: white;
+}
