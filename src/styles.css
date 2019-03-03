@@ -1,7 +1,10 @@
 @import '~font-awesome/css/font-awesome.css';
 
+.card {
+  border-color: rgb(35, 106, 172);
+}
+
 .card-header {
   background-color: rgb(35, 106, 172);
   color: white;
-  border-color: rgb(35, 106, 172);
 }
