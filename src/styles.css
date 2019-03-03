@@ -3,4 +3,5 @@
 .card-header {
   background-color: rgb(35, 106, 172);
   color: white;
+  border-color: rgb(35, 106, 172);
 }
