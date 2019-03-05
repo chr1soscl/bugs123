@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
    formFields2:any[]=[
      [
-      {id:'id',label:'Id',type:'text',validators:['required','max|10']},
+      {id:'id',label:'Id',type:'number',validators:['required','max|10']},
       {id:'fName',label:this.translate.instant('Homepage.first-name'),type:'text'},
       {id:'lName',label:this.translate.instant('Homepage.last-name'),type:'text'},
       {id:'dob',label:this.translate.instant('Homepage.dob'),type:'date'}
@@ -30,7 +30,10 @@ export class HomeComponent implements OnInit {
       {id:'aLine2',label:'Address Line 2',type:'text'},
       {id:'zip',label:'Zip Code',type:'text'},
       {id:'city',label:'City',type:'text'},
-      {id:'state',label:'State',type:'text'},
+      {id:'state',label:'State',type:'text'}
+     ],
+     [
+      {id:'comments',label:'Comments',type:'textarea'}
      ],
      [
         {label:this.translate.instant('Navigationpage.search'),type:'button'},

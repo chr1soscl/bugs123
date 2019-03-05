@@ -50,14 +50,15 @@
           <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
       <div *ngSwitchCase="'textarea'">
-          <input type="{{input.type}}"
+          <textarea
           id="{{input.id}}"
           name="{{input.id}}"
           placeholder="{{input.label}}"
           formControlName="{{input.id}}"
           class="form-control mb-2 mr-sm-2"
           (keyup.enter)="onEnter()"
-          />
+          height="100px"
+          ></textarea>
           <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
       <div *ngSwitchCase="'dropdown'">
