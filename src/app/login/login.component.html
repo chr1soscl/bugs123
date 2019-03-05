@@ -31,7 +31,7 @@
           <div class="alert alert-danger" *ngIf="form.get('user_password').touched && form.get('user_password').invalid">
               {{ 'Loginpage.password-required' | translate }}
           </div>
-          <button (click)="loginUser()" type="button" class="btn btn-success float-right">
+          <button (click)="loginUser()" type="btn btn" class="btn float-right">
                   {{ 'Loginpage.login' | translate }}
           </button>
         </form>

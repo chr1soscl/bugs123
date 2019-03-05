@@ -10,7 +10,11 @@
     },
      "Homepage": {
         "welcome": "Bienvenido a Bugs123!",
-        "usersearch":"Busqueda de usuario"
+        "usersearch":"Busqueda de usuario",
+        "first-name":"Nombre",
+        "last-name":"Apellido",
+        "dob":"Fecha de Nacimiento",
+        "clear":"Limpiar"
     },
     "Navigationpage":{
         "home":"Bienvenido",

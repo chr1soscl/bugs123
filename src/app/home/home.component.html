@@ -5,15 +5,17 @@
   </h2>
   <hr class="my-4"/>
 
-  <div class="card border-info mb-3" style="max-width: 100%;">
+  <div class="card mb-3" style="max-width: 100%;">
     <div class="card-header">
             {{ 'Homepage.usersearch' | translate }}
     </div>
     <div class="card-body">
-      <lib-search-form
+      
+      <lib-form
       (onSubmit)="onClick($event)"
-      [searchCriteria]="formFields">
-      </lib-search-form>
+      [searchCriteria]="formFields2">
+      </lib-form>
+
     </div>
   </div>
 

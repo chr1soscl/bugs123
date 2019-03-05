@@ -10,7 +10,11 @@
     },
      "Homepage": {
         "welcome": "欢迎来到Bugs123!",
-        "usersearch":"用户搜索"
+        "usersearch":"用户搜索",
+        "first-name":"名字",
+        "last-name":"姓",
+        "dob":"出生日期",
+        "clear":"清除"
     },
     "Navigationpage":{
         "home":"主页",

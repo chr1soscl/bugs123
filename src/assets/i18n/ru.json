@@ -10,7 +10,11 @@
     },
     "Homepage": {
         "welcome": "Добро пожаловать на Bugs123!",
-        "usersearch":"Поиск пользователей"
+        "usersearch":"Поиск пользователей",
+        "first-name":"имя",
+        "last-name":"Фамилия",
+        "dob":"Дата рождения",
+        "clear":"Чисто"
     },
     "Navigationpage":{
         "home":"Домашняя",

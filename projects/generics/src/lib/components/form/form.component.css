@@ -1,7 +1,7 @@
 .btn{
     background-color: white;
-    color: rgb(35, 106, 172);
-    border-color: rgb(35, 106, 172);
+    color:rgb(35, 106, 172);
+    border-color:rgb(35, 106, 172);
 }
 
 .alert{
@@ -31,7 +31,3 @@ button:focus,
     outline: 0 none;
 }
 
-.btn:hover {
-    color: white;
-    background-color:rgb(35, 106, 172);
-  }

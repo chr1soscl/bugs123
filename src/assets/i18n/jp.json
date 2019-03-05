@@ -10,7 +10,11 @@
     },
      "Homepage": {
         "welcome": "Bugs123へようこそ!",
-        "usersearch":"ユーザー検索"
+        "usersearch":"ユーザー検索",
+        "first-name":"名",
+        "last-name":"姓",
+        "dob":"生年月日",
+        "clear":"クリア"
     },
     "Navigationpage":{
         "home":"ホーム",
