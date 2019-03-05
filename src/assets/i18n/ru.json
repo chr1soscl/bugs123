@@ -29,7 +29,11 @@
         "criticality":"Критичность",
         "phase":"Фаза",
         "rca-short":"RCA",
-        "project":"Проект"
+        "project":"Проект",
+        "clear":"Чисто",
+        "paint":"Покрасить",
+        "release":"выпуск",
+        "testing-phase":"этап тестирования"
     },
     "Systempage":{
         "projects":"Проекты",

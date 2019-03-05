@@ -29,11 +29,15 @@
         "criticality":"Kritisch",
         "phase":"Phase",
         "rca-short":"RCA",
-        "project":"Projekt"
+        "project":"Projekt",
+        "clear":"Klare",
+        "paint":"Farbe",
+        "release":"Veröffentlichung",
+        "testing-phase":"Testphase"
     },
     "Systempage":{
         "projects":"Projekte",
-        "releases":"Software-Versionen"
+        "releases":"Veröffentlichung"
     },
     "Aboutpage":{
         "leaders":"Good leaders praise in public and correct in private.",

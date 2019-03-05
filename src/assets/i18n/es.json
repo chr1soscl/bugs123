@@ -29,7 +29,11 @@
         "criticality":"Criticidad",
         "phase":"Fase",
         "rca-short":"ACR",
-        "project":"Proyecto"
+        "project":"Proyecto",
+        "clear":"Limpiar",
+        "paint":"Pintar",
+        "release":"Lanzamiento",
+        "testing-phase":"Fase de Pruebas"
     },
     "Systempage":{
         "projects":"Proyectos",

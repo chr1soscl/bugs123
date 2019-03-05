@@ -29,7 +29,11 @@
         "criticality":"Criticality",
         "phase":"Phase",
         "rca-short":"RCA",
-        "project":"Project"
+        "project":"Project",
+        "clear":"Clear",
+        "paint":"Paint",
+        "release":"Release",
+        "testing-phase":"Testing Phase"
     },
     "Systempage":{
         "projects":"Projects",

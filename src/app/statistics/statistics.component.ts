@@ -12,6 +12,7 @@ import { RcaChartService } from '../services/chart-services/rca-chart.service';
 import { RcaProjectChartService } from '../services/chart-services/rca-project-chart.service';
 import { ProjectRcaChartService } from '../services/chart-services/project-rca-chart.service';
 import { DataService } from 'projects/generics/src/public_api';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -42,12 +43,12 @@ export class StatisticsComponent implements OnInit {
   phases:any[]=[];
 
   formFields:any[]=[
-     {id:'release',label:'Release',type:'dropdown',
+     {id:'release',label:this.translate.instant('Statisticspage.release'),type:'dropdown',
       options:this.releases},
-      {id:'phase',label:'Testing Phase',type:'dropdown',
+      {id:'phase',label:this.translate.instant('Statisticspage.testing-phase'),type:'dropdown',
       options:this.phases},
-     {label:'Graph',type:'button'},
-     {label:'Clean',type:'reset'}
+     {label:this.translate.instant('Statisticspage.paint'),type:'button'},
+     {label:this.translate.instant('Statisticspage.clear'),type:'reset'}
    ];
 
   constructor(private releaseService:ReleasesService, 
@@ -56,7 +57,8 @@ export class StatisticsComponent implements OnInit {
               public phaseChartService:PhaseChartService,
               public rcaChartService:RcaChartService,
               public rcaProjectChartService:RcaProjectChartService,
-              public projectRcaChartService:ProjectRcaChartService) { }
+              public projectRcaChartService:ProjectRcaChartService,
+              private translate:TranslateService) { }
 
   ngOnInit() {
 

@@ -29,7 +29,11 @@
         "criticality":"重要性",
         "phase":"段階",
         "rca-short":"RCA",
-        "project":"プロジェクト"
+        "project":"プロジェクト",
+        "clear":"クリア",
+        "paint":"ペイント",
+        "release":"リリース",
+        "testing-phase":"テスト段階"
     },
     "Systempage":{
         "projects":"プロジェクト",

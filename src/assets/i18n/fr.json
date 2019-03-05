@@ -19,8 +19,8 @@
     "Navigationpage":{
         "home":"Accueil",
         "statistics":"Les Statistiques",
-        "system":"Les Système",
-        "about":"Au sujet de",
+        "system":"Le Système",
+        "about":"Au sujet",
         "logout":"Se déconnecter",
         "search":"Rechercher"
     },
@@ -29,7 +29,11 @@
         "criticality":"La Criticité",
         "phase":"La Phase",
         "rca-short":"ACO",
-        "project":"Projet"
+        "project":"Projet",
+        "clear":"Claire",
+        "paint":"Peindre",
+        "release":"Version du Logiciel",
+        "testing-phase":"Phase de Test"
     },
     "Systempage":{
         "projects":"Les Projets",

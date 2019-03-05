@@ -29,7 +29,11 @@
         "criticality":"临界",
         "phase":"阶段",
         "rca-short":"RCA",
-        "project":"项目"
+        "project":"项目",
+        "clear":"清除",
+        "paint":"涂料",
+        "release":"软件发布",
+        "testing-phase":"测试阶段"
     },
     "Systempage":{
         "projects":"项目",
