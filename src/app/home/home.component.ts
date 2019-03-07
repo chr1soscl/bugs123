@@ -36,6 +36,9 @@ export class HomeComponent implements OnInit {
       {id:'comments',label:'Comments',type:'textarea'}
      ],
      [
+      {id:'question1',label:'This is a question about a survey?',type:'text'}
+     ],
+     [
         {label:this.translate.instant('Navigationpage.search'),type:'button'},
         {label:this.translate.instant('Homepage.clear'),type:'reset'}
      ]

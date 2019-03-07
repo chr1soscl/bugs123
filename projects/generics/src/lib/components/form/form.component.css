@@ -31,3 +31,11 @@ button:focus,
     outline: 0 none;
 }
 
+.col-auto{
+    /*border: 3px dotted green;*/
+    flex-grow: 1;
+}
+/*
+.row {
+    border: 3px dotted red;
+}*/

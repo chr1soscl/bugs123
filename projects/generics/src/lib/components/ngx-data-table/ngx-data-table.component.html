@@ -10,7 +10,7 @@
                     <button class="btn btn-sm"
                     [value]="element[cols]"
                     (click)="onClick(element[cols])"
-                    >{{elements[cols]}}</button>
+                    >{{element[cols]}}</button>
                 </div>
                 <div *ngIf="element[cols]===undefined" class="alert alert-danger mt-3">
                     No Results Found.

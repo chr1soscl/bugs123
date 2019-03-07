@@ -1,6 +1,6 @@
 <form [formGroup]="form" class="form">
   <div class="row" *ngFor="let row of searchCriteria">
-  <div *ngFor="let input of row" class="form-group col-lg-3">
+  <div *ngFor="let input of row" class="form-group col-auto">
     <label *ngIf="input.type!=='button' && input.type!=='reset'" for="{{input.id}}" class="mr-sm-2">
         <div *ngIf="includeRequired(input.validators)">*{{input.label}}</div>
         <div *ngIf="!includeRequired(input.validators)">{{input.label}}</div>
