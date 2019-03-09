@@ -59,7 +59,7 @@
         <select name="{{input.id}}" 
           id="{{input.id}}"
           formControlName={{input.id}}
-          class="form-control mb2">
+          class="form-control form-control-sm mb2">
             <option [value]=""></option>
             <option [value]="option.id" *ngFor="let option of input.options">{{option.label}}</option>
         </select>
