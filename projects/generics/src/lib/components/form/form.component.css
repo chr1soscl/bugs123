@@ -35,6 +35,11 @@ button:focus,
     /*border: 3px dotted green;*/
     flex-grow: 1;
 }
+
+.radio{
+    width: 15px;
+    height: 15px;
+}
 /*
 .row {
     border: 3px dotted red;

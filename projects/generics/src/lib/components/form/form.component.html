@@ -13,7 +13,6 @@
           placeholder="{{input.label}}"
           formControlName="{{input.id}}"
           class="form-control form-control-sm"
-          (keyup.enter)="onEnter()"
           />
         <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
@@ -24,7 +23,6 @@
           placeholder="{{input.label}}"
           formControlName="{{input.id}}"
           class="form-control form-control-sm"
-          (keyup.enter)="onEnter()"
           />
           <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
@@ -34,7 +32,6 @@
           name="{{input.id}}"
           formControlName="{{input.id}}"
           class="form-control form-control-sm"
-          (keyup.enter)="onEnter()"
           />
           <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
@@ -44,8 +41,7 @@
           name="{{input.id}}"
           placeholder="{{input.label}}"
           formControlName="{{input.id}}"
-          class="form-control mb-2 mr-sm-2"
-          (keyup.enter)="onEnter()"
+          class="form-control mb-2"
           />
           <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
@@ -56,19 +52,30 @@
           placeholder="{{input.label}}"
           formControlName="{{input.id}}"
           class="form-control mb-2 mr-sm-2"
-          (keyup.enter)="onEnter()"
-          height="100px"
           ></textarea>
           <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
-      <div *ngSwitchCase="'dropdown'">
+      <div *ngSwitchCase="'combobox'">
         <select name="{{input.id}}" 
           id="{{input.id}}"
           formControlName={{input.id}}
-          class="form-control mb2 mr-sm2">
+          class="form-control mb2">
             <option [value]=""></option>
             <option [value]="option.id" *ngFor="let option of input.options">{{option.label}}</option>
         </select>
+        <lib-alert [input]="input" [form]="form"></lib-alert>
+      </div>
+      <div *ngSwitchCase="'radio'">
+        <div *ngFor="let option of input.options">
+        {{option.label}}
+        <input type="{{input.type}}"
+          name="{{input.id}}" 
+          id="{{input.id}}"
+          formControlName={{input.id}}
+          class="form-control mb2 radio"
+          [value]="option.id"
+          />       
+        </div>     
         <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
       <div *ngSwitchCase="'button'">

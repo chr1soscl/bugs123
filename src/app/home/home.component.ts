@@ -30,7 +30,12 @@ export class HomeComponent implements OnInit {
       {id:'aLine2',label:'Address Line 2',type:'text'},
       {id:'zip',label:'Zip Code',type:'text'},
       {id:'city',label:'City',type:'text'},
-      {id:'state',label:'State',type:'text'}
+      {id:'state',label:'State',type:'combobox',
+       options:[
+         {id:'1',label:'AL'},
+         {id:'2',label:'AK'},
+         {id:'3',label:'FL'}
+       ]}
      ],
      [
       {id:'comments',label:'Comments',type:'textarea'}
