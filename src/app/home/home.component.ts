@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
       {id: 'aLine2', label: 'Address Line 2', type: 'text'},
       {id: 'zip', label: 'Zip Code', type: 'text'},
       {id: 'city', label: 'City', type: 'text'},
-      {id: 'state', label: 'State', type: 'checkbox',
+      {id: 'state', label: 'State', type: 'combobox',
        options: [
          {id: 'AL', label: 'Alabama'},
          {id: 'AK', label: 'Arkansas'},
