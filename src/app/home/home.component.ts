@@ -9,66 +9,67 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HomeComponent implements OnInit {
 
-   dataResults:any;
-   columns=["name","username","email","phone","website"];
+   dataResults: any;
+   columns = ['name', 'username', 'email', 'phone', 'website'];
 
-   formFields:any[]=[
-    {id:'id',label:'Id',type:'text',validators:['required','max|10']},
-     {label:'Search',type:'button'},
-     {label:'Clean',type:'reset'}
+   formFields: any[] = [
+    {id: 'id', label: 'Id', type: 'text', validators: ['required', 'max|10']},
+     {label: 'Search', type: 'button'},
+     {label: 'Clean', type: 'reset'}
    ];
 
-   formFields2:any[]=[
+   formFields2: any[] = [
      [
-      {id:'id',label:'Id',type:'number',validators:['required','max|10']},
-      {id:'fName',label:this.translate.instant('Homepage.first-name'),type:'text'},
-      {id:'lName',label:this.translate.instant('Homepage.last-name'),type:'text'},
-      {id:'dob',label:this.translate.instant('Homepage.dob'),type:'date'}
+      {id: 'id', label: 'Id', type: 'number', validators: ['required', 'max|10']},
+      {id: 'fName', label: this.translate.instant('Homepage.first-name'), type: 'text'},
+      {id: 'lName', label: this.translate.instant('Homepage.last-name'), type: 'text'},
+      {id: 'dob', label: this.translate.instant('Homepage.dob'), type: 'date'}
      ],
      [
-      {id:'aLine1',label:'Address Line',type:'text'},
-      {id:'aLine2',label:'Address Line 2',type:'text'},
-      {id:'zip',label:'Zip Code',type:'text'},
-      {id:'city',label:'City',type:'text'},
-      {id:'state',label:'State',type:'combobox',
-       options:[
-         {id:'1',label:'AL'},
-         {id:'2',label:'AK'},
-         {id:'3',label:'FL'}
-       ]}
+      {id: 'aLine1', label: 'Address Line', type: 'text'},
+      {id: 'aLine2', label: 'Address Line 2', type: 'text'},
+      {id: 'zip', label: 'Zip Code', type: 'text'},
+      {id: 'city', label: 'City', type: 'text'},
+      {id: 'state', label: 'State', type: 'checkbox',
+       options: [
+         {id: 'AL', label: 'Alabama'},
+         {id: 'AK', label: 'Arkansas'},
+         {id: 'FL', label: 'Florida'}
+       ],
+       required:true}
      ],
      [
-      {id:'comments',label:'Comments',type:'textarea'}
+      {id: 'comments', label: 'Comments', type: 'textarea'}
      ],
      [
-        {label:this.translate.instant('Navigationpage.search'),type:'button',action:'search'},
-        {label:this.translate.instant('Homepage.clear'),type:'reset'}
+        {label: this.translate.instant('Navigationpage.search'), type: 'button', action: 'search'},
+        {label: this.translate.instant('Homepage.clear'), type: 'reset'}
      ]
    ];
 
-  constructor(private userService:UsersService,
-              private translate:TranslateService) { }
+  constructor(private userService: UsersService,
+              private translate: TranslateService) { }
 
   ngOnInit() {
     this.userService.getAll().subscribe(
-      data=>{
+      data => {
         console.log(data);
-        this.dataResults=data;
+        this.dataResults = data;
       },
-      error=>{
+      error => {
         console.log(error);
       }
     );
   }
 
-  onClick(event):void{
-    console.log('onClick',event);
+  onClick(event: any): void {
+    console.log('onClick', event);
     this.userService.getId(event[0].id).subscribe(
-      data=>{
-        this.dataResults=[];
+      data => {
+        this.dataResults = [];
         this.dataResults.push(data);
       },
-      error=>{
+      error => {
         console.log(error);
       }
     );

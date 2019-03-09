@@ -2,8 +2,8 @@
   <div class="row" *ngFor="let row of searchCriteria">
   <div *ngFor="let input of row" class="form-group col-auto">
     <label *ngIf="input.type!=='button' && input.type!=='reset'" for="{{input.id}}" class="mr-sm-2">
-        <div *ngIf="includeRequired(input.validators)">*{{input.label}}</div>
-        <div *ngIf="!includeRequired(input.validators)">{{input.label}}</div>
+        <div *ngIf="includeRequired(input.validators) || input.required===true">*{{input.label}}</div>
+        <div *ngIf="!includeRequired(input.validators) && (input.required===false || input.required===undefined)">{{input.label}}</div>
     </label>
     <div [ngSwitch]="input.type">
       <div *ngSwitchCase="'text'">
@@ -74,6 +74,21 @@
           formControlName={{input.id}}
           class="form-control mb2 radio"
           [value]="option.id"
+          (change)="updateRadioValue(input.id,$event.target.checked,option.id)"
+          />       
+        </div>     
+        <lib-alert [input]="input" [form]="form"></lib-alert>
+      </div>
+      <div *ngSwitchCase="'checkbox'">
+        <div formArrayName="{{input.id}}" *ngFor="let option of input.options; let i=index;">
+        {{option.label}}
+        <input type="{{input.type}}"
+          name="{{option.id}}" 
+          id="{{option.id}}"
+          [formControlName]="i" 
+          [value]="input.options[i].id"
+          class="form-control mb2 radio"
+          (change)="updateCheckboxValue(input.id,i,$event.target.checked,input.options[i].id)"
           />       
         </div>     
         <lib-alert [input]="input" [form]="form"></lib-alert>

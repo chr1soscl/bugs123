@@ -12,8 +12,8 @@ import { InvalidUserError } from 'projects/generics/src/lib/common/invalid-user-
 export class LoginComponent implements OnInit {
 
   form = new FormGroup({
-    user_login: new FormControl("",Validators.required),
-    user_password: new FormControl("",Validators.required)
+    user_login: new FormControl('', Validators.required),
+    user_password: new FormControl('', Validators.required)
   });
 
   loginUserData = {};
@@ -23,15 +23,15 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
   }
 
-  loginUser(){
-    console.log("LoginComponent.userData ",this.form.value);
+  loginUser() {
+    console.log('LoginComponent.userData>', this.form.value);
     this.auth.getObject(this.form.value).subscribe(
-      data=>{
-        localStorage.setItem("token",data[0].token);
-        this.router.navigate(["/home"], { skipLocationChange: true});
+      data => {
+        localStorage.setItem('token', data[0].token);
+        this.router.navigate(['/home'], { skipLocationChange: true});
       },
-      error=>{
-        if(error instanceof InvalidUserError){
+      error => {
+        if (error instanceof InvalidUserError) {
           this.form.setErrors({
             invalidLogin: true
           });
@@ -39,5 +39,4 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  
 }

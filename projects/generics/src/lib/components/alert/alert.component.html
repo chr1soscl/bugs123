@@ -1,5 +1,6 @@
 <div *ngIf="form.get(input.id).touched && form.get(input.id).invalid" class="alert alert-danger">
   <div *ngIf="form.get(input.id).errors.required">{{input.label}} is required.</div>
+  <div *ngIf="form.get(input.id).errors.multipleCheckboxRequireOne">At least one option is required for {{input.label}}.</div>
   <div *ngIf="form.get(input.id).errors.minlength">{{input.label}} minimum length is {{form.get(input.id).errors.minlength.requiredLength}}.</div>
   <div *ngIf="form.get(input.id).errors.maxlength">{{input.label}} maximum length is {{form.get(input.id).errors.maxlength.requiredLength}}.</div>
   <div *ngIf="form.get(input.id).errors.min">{{input.label}} min value is {{form.get(input.id).errors.min.requiredLength}}.</div>
