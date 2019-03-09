@@ -14,8 +14,11 @@ export class FormComponent implements OnInit {
   @Input() searchCriteria: any[];
   @Output() onSubmit: EventEmitter<any[]> = new EventEmitter<any[]>();
 
-  onClick(){
-    this.onSubmit.emit(this.form.value);
+  onClick(action){
+    let values:any[]=[];
+    values.push(this.form.value);
+    values.push({action:action});
+    this.onSubmit.emit(values);
   }
 
   onEnter(){
@@ -38,7 +41,12 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
-  for(let row of this.searchCriteria)
+     this.buildFormGroup(this.searchCriteria);
+  }
+
+  public buildFormGroup(fields){
+    
+    for(let row of fields)
     for(let input of row){
       if(input.id!==undefined){
         if(input.validators!==undefined){
@@ -48,6 +56,7 @@ export class FormComponent implements OnInit {
         }
       }
     }
+    
   }
 
 }

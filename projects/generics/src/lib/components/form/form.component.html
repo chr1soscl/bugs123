@@ -72,7 +72,7 @@
         <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
       <div *ngSwitchCase="'button'">
-        <button type="{{input.type}}" class="btn btn mb-2" (click)="onClick()" [disabled]="!form.valid">{{input.label}}</button>
+        <button type="{{input.type}}" class="btn btn mb-2" (click)="onClick(input.action)" [disabled]="!form.valid">{{input.label}}</button>
       </div>
       <div *ngSwitchCase="'reset'">
         <button type="{{input.type}}" class="btn btn mb-2">{{input.label}}</button>

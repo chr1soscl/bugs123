@@ -36,10 +36,7 @@ export class HomeComponent implements OnInit {
       {id:'comments',label:'Comments',type:'textarea'}
      ],
      [
-      {id:'question1',label:'This is a question about a survey?',type:'text'}
-     ],
-     [
-        {label:this.translate.instant('Navigationpage.search'),type:'button'},
+        {label:this.translate.instant('Navigationpage.search'),type:'button',action:'search'},
         {label:this.translate.instant('Homepage.clear'),type:'reset'}
      ]
    ];
@@ -60,8 +57,8 @@ export class HomeComponent implements OnInit {
   }
 
   onClick(event):void{
-    console.log('onClick',event.id);
-    this.userService.getId(event.id).subscribe(
+    console.log('onClick',event);
+    this.userService.getId(event[0].id).subscribe(
       data=>{
         this.dataResults=[];
         this.dataResults.push(data);
