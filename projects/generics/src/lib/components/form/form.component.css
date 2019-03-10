@@ -36,7 +36,7 @@ button:focus,
     flex-grow: 1;
 }
 
-.radio{
+.radio,.checkbox{
     width: 15px;
     height: 15px;
 }

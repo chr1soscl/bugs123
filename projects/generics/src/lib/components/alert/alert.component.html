@@ -1,4 +1,4 @@
-<div *ngIf="form.get(input.id).touched && form.get(input.id).invalid" class="alert alert-danger">
+<div *ngIf="form.get(input.id).touched && form.get(input.id).invalid" class="alert alert-danger mt-2">
   <div *ngIf="form.get(input.id).errors.required">{{input.label}} is required.</div>
   <div *ngIf="form.get(input.id).errors.multipleCheckboxRequireOne">At least one option is required for {{input.label}}.</div>
   <div *ngIf="form.get(input.id).errors.minlength">{{input.label}} minimum length is {{form.get(input.id).errors.minlength.requiredLength}}.</div>
@@ -14,7 +14,7 @@
     (form.get(input.prerequired.id).value==='' ||
      form.get(input.prerequired.id).value===null) &&
     (form.get(input.id).touched &&
-     form.get(input.id).value!=='')" class="alert alert-danger">
+     form.get(input.id).value!=='')" class="alert alert-danger mt-2">
     Please provide {{input.prerequired.label}}.
     {{form.setErrors({'incorrect':true})}}
 </div>

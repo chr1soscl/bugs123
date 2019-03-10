@@ -87,7 +87,7 @@
           id="{{option.id}}"
           [formControlName]="i" 
           [value]="input.options[i].id"
-          class="form-control mb2 radio"
+          class="form-control mb2 checkbox"
           (change)="updateCheckboxValue(input.id,i,$event.target.checked,input.options[i].id)"
           />       
         </div>     
