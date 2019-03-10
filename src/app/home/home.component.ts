@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
      [
       {id: 'aLine1', label: 'Address Line', type: 'text'},
       {id: 'aLine2', label: 'Address Line 2', type: 'text'},
-      {id: 'zip', label: 'Zip Code', type: 'text'},
+      {id: 'zip', label: 'Zip Code', type: 'text',mask:'00000'},
       {id: 'city', label: 'City', type: 'text'},
       {id: 'phone', label: 'Phone Number', type: 'text',mask:'(000) 000-0000'},
       {id: 'ssn', label: 'SSN', type: 'text',mask:'000-00-0000'},
