@@ -65,8 +65,8 @@
         </select>
         <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
-      <div *ngSwitchCase="'radio'">
-        <div *ngFor="let option of input.options">
+      <div class="row" *ngSwitchCase="'radio'">
+        <div class="col-auto" *ngFor="let option of input.options">
         {{option.label}}
         <input type="{{input.type}}"
           name="{{input.id}}" 
@@ -79,8 +79,8 @@
         </div>     
         <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
-      <div *ngSwitchCase="'checkbox'">
-        <div formArrayName="{{input.id}}" *ngFor="let option of input.options; let i=index;">
+      <div class="row" *ngSwitchCase="'checkbox'">
+        <div class="col-auto" formArrayName="{{input.id}}" *ngFor="let option of input.options; let i=index;">
         {{option.label}}
         <input type="{{input.type}}"
           name="{{option.id}}" 

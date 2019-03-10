@@ -36,6 +36,19 @@ export class HomeComponent implements OnInit {
          {id: 'AK', label: 'Arkansas'},
          {id: 'FL', label: 'Florida'}
        ],
+       required:true},
+       {id: 'phase', label: 'Testing Phase', type: 'checkbox',
+       options: [
+         {id: 'SIT', label: 'SIT'},
+         {id: 'UAT', label: 'UAT'},
+         {id: 'REG', label: 'REG'}
+       ],
+       required:true},
+       {id: 'sex', label: 'Sex', type: 'radio',
+       options: [
+         {id: 'M', label: 'Male'},
+         {id: 'F', label: 'Female'}
+       ],
        required:true}
      ],
      [
