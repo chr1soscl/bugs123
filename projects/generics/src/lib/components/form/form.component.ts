@@ -80,7 +80,6 @@ export class FormComponent implements OnInit {
   }
 
   updateRadioValue(inputId,checked,optionId){
-    console.log(inputId,checked,optionId);
     const control=<FormControl>this.form.controls[inputId];
     if(!checked){   
       control.setValue('');
