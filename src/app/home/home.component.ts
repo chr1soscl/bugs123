@@ -37,11 +37,12 @@ export class HomeComponent implements OnInit {
       {id: 'state', label: 'State', type: 'combobox',
        options: states.getStates(),
        required:true},
-       {id: 'phase', label: 'Testing Phase', type: 'checkbox',
+       {id: 'pet', label: 'Pet', type: 'checkbox',
        options: [
-         {id: 'SIT', label: 'SIT'},
-         {id: 'UAT', label: 'UAT'},
-         {id: 'REG', label: 'REG'}
+         {id: 'dog', label: 'Dog'},
+         {id: 'cat', label: 'Cat'},
+         {id: 'fish', label: 'Fish'},
+         {id: 'hamster', label:'Hamster'}
        ],
        required:true},
        {id: 'sex', label: 'Sex', type: 'radio',
