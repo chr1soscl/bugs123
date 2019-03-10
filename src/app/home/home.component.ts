@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
       {id: 'id', label: 'Id', type: 'number', validators: ['required', 'max|10']},
       {id: 'fName', label: this.translate.instant('Homepage.first-name'), type: 'text'},
       {id: 'lName', label: this.translate.instant('Homepage.last-name'), type: 'text'},
-      {id: 'dob', label: this.translate.instant('Homepage.dob'), type: 'date'}
+      {id: 'dob', label: this.translate.instant('Homepage.dob'), type: 'date', required:true}
      ],
      [
       {id: 'aLine1', label: 'Address Line', type: 'text'},
@@ -45,8 +45,7 @@ export class HomeComponent implements OnInit {
        options: [
          {id: 'M', label: 'Male'},
          {id: 'F', label: 'Female'}
-       ],
-       required:true}
+       ]}
      ],
      [
       {id: 'comments', label: 'Comments', type: 'textarea'}

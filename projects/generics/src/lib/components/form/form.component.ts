@@ -55,8 +55,8 @@ export class FormComponent implements OnInit {
           if(input.type!==undefined && input.type==='checkbox'){
             this.form.addControl(input.id, this.getCheckBoxFormArray(input));
           }
-          if(input.type!==undefined && input.type==='radio'){
-            this.form.addControl(input.id, this.getRadioValidator(input.required));
+          if(input.type!==undefined && (input.type==='radio' || input.type==='date' || input.type==='combobox')){
+            this.form.addControl(input.id, this.getRequiredValidator(input.required));
           }else{
             if (input.validators !== undefined) {
                 this.form.addControl(input.id, new FormControl('', FormValidators.getValidators(input.validators)));
@@ -97,11 +97,12 @@ export class FormComponent implements OnInit {
     return null;
   }
 
-  getRadioValidator(required:boolean):FormControl{
+  getRequiredValidator(required:boolean):FormControl{
     if(required){
        return new FormControl('',Validators.required);
+    }else {
+      return new FormControl('',null);
     }
-    return null;
   }
 
   getCheckBoxFormArray(input):FormArray{
