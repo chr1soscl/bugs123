@@ -3,8 +3,8 @@
   <div *ngIf="form.get(input.id).errors.multipleCheckboxRequireOne">At least one option is required for {{input.label}}.</div>
   <div *ngIf="form.get(input.id).errors.minlength">{{input.label}} minimum length is {{form.get(input.id).errors.minlength.requiredLength}}.</div>
   <div *ngIf="form.get(input.id).errors.maxlength">{{input.label}} maximum length is {{form.get(input.id).errors.maxlength.requiredLength}}.</div>
-  <div *ngIf="form.get(input.id).errors.min">{{input.label}} min value is {{form.get(input.id).errors.min.requiredLength}}.</div>
-  <div *ngIf="form.get(input.id).errors.max">{{input.label}} max value is {{form.get(input.id).errors.max.requiredLength}}.</div>
+  <div *ngIf="form.get(input.id).errors.min">{{input.label}} min value is {{form.get(input.id).errors.min.min}}.</div>
+  <div *ngIf="form.get(input.id).errors.max">{{input.label}} max value is {{form.get(input.id).errors.max.max}}.</div>
   <div *ngIf="form.get(input.id).errors.email">{{input.label}} is invalid.</div>
   <div *ngIf="form.get(input.id).errors.pattern">{{input.label}} is invalid.</div>
 </div>

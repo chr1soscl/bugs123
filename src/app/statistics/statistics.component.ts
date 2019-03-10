@@ -3,10 +3,8 @@ import { ReleasesService } from '../services/releases.service';
 import { PhasesService } from '../services/phases.service';
 
 import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
-import { GoogleChart } from '../common/googlechart';
 import { ChartFactory } from '../common/chartfactory';
 import { CriticalityChartService } from '../services/chart-services/criticality-chart.service';
-import { ColumnChart } from '../common/columnchart';
 import { PhaseChartService } from '../services/chart-services/phase-chart.service';
 import { RcaChartService } from '../services/chart-services/rca-chart.service';
 import { RcaProjectChartService } from '../services/chart-services/rca-project-chart.service';

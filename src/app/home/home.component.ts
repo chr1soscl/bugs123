@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../services/users.service';
 import { TranslateService } from '@ngx-translate/core';
+import { states } from '../common/states';
 
 @Component({
   selector: 'app-home',
@@ -31,11 +32,7 @@ export class HomeComponent implements OnInit {
       {id: 'zip', label: 'Zip Code', type: 'text'},
       {id: 'city', label: 'City', type: 'text'},
       {id: 'state', label: 'State', type: 'combobox',
-       options: [
-         {id: 'AL', label: 'Alabama'},
-         {id: 'AK', label: 'Arkansas'},
-         {id: 'FL', label: 'Florida'}
-       ],
+       options: states.getStates(),
        required:true},
        {id: 'phase', label: 'Testing Phase', type: 'checkbox',
        options: [
