@@ -2,6 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { FormValidators } from './../../common/validators';
 import { CustomValidators } from '../../common/custom.validators';
+import { Validation } from '../../common/constants/validation';
+import { GenericInputType } from '../../common/constants/generic-input-type';
+import { Constants } from '../../common/constants/constants';
 
 @Component({
   selector: 'lib-form',
@@ -10,7 +13,7 @@ import { CustomValidators } from '../../common/custom.validators';
 })
 export class FormComponent implements OnInit {
 
-  form = new FormGroup({});
+  form;
 
   @Input() searchCriteria: any[];
   @Output() onSubmit: EventEmitter<any[]> = new EventEmitter<any[]>();
@@ -35,7 +38,7 @@ export class FormComponent implements OnInit {
   public includeRequired(validators: any) {
     if (validators !== undefined) {
       for (const validator of validators) {
-          if (validator === 'required') {
+          if (validator === Validation.REQUIRED) {
           return true;
           }
       }
@@ -47,21 +50,21 @@ export class FormComponent implements OnInit {
   }
 
   public buildFormGroup(fields) {
-
+    this.form = new FormGroup({});
     for (const row of fields) {
       for (const input of row) {
         if (input.id !== undefined) {
 
-          if(input.type!==undefined && input.type==='checkbox'){
+          if(input.type!==undefined && input.type===GenericInputType.CHECKBOX){
             this.form.addControl(input.id, this.getCheckBoxFormArray(input));
           }
-          if(input.type!==undefined && (input.type==='radio' || input.type==='date' || input.type==='combobox')){
+          if(input.type!==undefined && (input.type===GenericInputType.RADIO || input.type===GenericInputType.DATE || input.type===GenericInputType.COMBOBOX)){
             this.form.addControl(input.id, this.getRequiredValidator(input.required));
           }else{
             if (input.validators !== undefined) {
-                this.form.addControl(input.id, new FormControl('', FormValidators.getValidators(input.validators)));
+                this.form.addControl(input.id, new FormControl(Constants.EMPTY_SPACE, FormValidators.getValidators(input.validators)));
             } else {
-                this.form.addControl(input.id, new FormControl('', null));
+                this.form.addControl(input.id, new FormControl(Constants.EMPTY_SPACE, null));
             }
           }
         }
@@ -82,7 +85,7 @@ export class FormComponent implements OnInit {
   updateRadioValue(inputId,checked,optionId){
     const control=<FormControl>this.form.controls[inputId];
     if(!checked){   
-      control.setValue('');
+      control.setValue(Constants.EMPTY_SPACE);
     }else{
       control.setValue(optionId);
     }
@@ -98,9 +101,9 @@ export class FormComponent implements OnInit {
 
   getRequiredValidator(required:boolean):FormControl{
     if(required){
-       return new FormControl('',Validators.required);
+       return new FormControl(Constants.EMPTY_SPACE,Validators.required);
     }else {
-      return new FormControl('',null);
+      return new FormControl(Constants.EMPTY_SPACE,null);
     }
   }
 

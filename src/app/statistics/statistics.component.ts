@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { ChartFactory } from '../common/chartfactory';
 import { ReleasesService } from '../services/releases.service';
 import { PhasesService } from '../services/phases.service';
-
 import { GoogleChartInterface } from 'ng2-google-charts/google-charts-interfaces';
-import { ChartFactory } from '../common/chartfactory';
 import { CriticalityChartService } from '../services/chart-services/criticality-chart.service';
 import { PhaseChartService } from '../services/chart-services/phase-chart.service';
 import { RcaChartService } from '../services/chart-services/rca-chart.service';
@@ -12,7 +12,7 @@ import { ProjectRcaChartService } from '../services/chart-services/project-rca-c
 import { DataService } from 'projects/generics/src/public_api';
 import { TranslateService } from '@ngx-translate/core';
 
-
+import { Constants } from '../common/constants';
 
 @Component({
   selector: 'app-statistics',
@@ -41,9 +41,9 @@ export class StatisticsComponent implements OnInit {
   phases:any[]=[];
 
   formFields:any[]=[
-     {id:'release',label:this.translate.instant('Statisticspage.release'),type:'dropdown',
+     {id:'release',label:this.translate.instant('Statisticspage.release'),type:'combobox',
       options:this.releases},
-      {id:'phase',label:this.translate.instant('Statisticspage.testing-phase'),type:'dropdown',
+      {id:'phase',label:this.translate.instant('Statisticspage.testing-phase'),type:'combobox',
       options:this.phases},
      {label:this.translate.instant('Statisticspage.paint'),type:'button'},
      {label:this.translate.instant('Statisticspage.clear'),type:'reset'}
@@ -60,8 +60,8 @@ export class StatisticsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.loadChartTab('left','criticality','Criticality',1,this.criticalityChartService);
-    this.loadChartTab('right','rca','Root Cause Analysis',1,this.rcaChartService);
+    this.loadChartTab(Constants.LEFT,'criticality','Criticality',1,this.criticalityChartService);
+    this.loadChartTab(Constants.RIGHT,'rca','Root Cause Analysis',1,this.rcaChartService);
   
     this.releaseService.getAll().subscribe(
       releases=>{
@@ -137,17 +137,17 @@ export class StatisticsComponent implements OnInit {
   }
 
   setGeneralPane(side:string,chart:GoogleChartInterface){
-    if(side==='left')
+    if(side===Constants.LEFT)
       this.generalLeftPane=chart;
-    else if(side==='right')
+    else if(side===Constants.RIGHT)
       this.generalRightPane=chart;
   }
 
   setActivePane(side:string,number:number){
-    if(side==='left'){
+    if(side===Constants.LEFT){
       this.activeLeftPane=number;
     }
-    else if(side==='right'){
+    else if(side===Constants.RIGHT){
       this.activeRightPane=number;
     }
   }
@@ -180,16 +180,16 @@ export class StatisticsComponent implements OnInit {
     console.log("onClick>chartRequest>",this.chartRequest);
     
     if(this.activeLeftPane===1)
-      this.loadChartTab('left','criticality','Criticality',1,this.criticalityChartService);
+      this.loadChartTab(Constants.LEFT,'criticality','Criticality',1,this.criticalityChartService);
     else if(this.activeLeftPane===2)
-      this.loadChartTab('left','phase','Phase',2,this.phaseChartService);
+      this.loadChartTab(Constants.LEFT,'phase','Phase',2,this.phaseChartService);
     
     if(this.activeRightPane===1)
-      this.loadChartTab('right','rca','Root Cause Analysis',1,this.rcaChartService);
+      this.loadChartTab(Constants.RIGHT,'rca','Root Cause Analysis',1,this.rcaChartService);
     else if(this.activeRightPane===2)
-      this.loadChartTab('right','rcaproject','RCA Project',2,this.rcaProjectChartService);
+      this.loadChartTab(Constants.RIGHT,'rcaproject','RCA Project',2,this.rcaProjectChartService);
     else if(this.activeRightPane===3)
-      this.loadChartTab('right','projectrca','Project RCA',3,this.projectRcaChartService);
+      this.loadChartTab(Constants.RIGHT,'projectrca','Project RCA',3,this.projectRcaChartService);
   }
 
 }

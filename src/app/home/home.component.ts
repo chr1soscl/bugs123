@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit {
   }
 
   onClick(event: any): void {
-    console.log('onClick', event);
+    console.log('onClick>', event);
     this.userService.getId(event[0].id).subscribe(
       data => {
         this.dataResults = [];

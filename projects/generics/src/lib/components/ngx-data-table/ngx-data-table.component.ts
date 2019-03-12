@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { NgxDataTableDataSource } from './ngx-data-table-datasource';
 import { Router } from '@angular/router';
+import { Constants } from '../../common/constants/constants';
 
 @Component({
     selector: 'ngx-data-table',
@@ -36,6 +37,6 @@ export class NgxDataTableComponent{
     onClick(id:string){
         console.log('DataTable.onClick()=',id,this.route);
         this.id=id;
-        this.router.navigate(['/'+this.route,id]);
+        this.router.navigate([Constants.BACK_SLASH+this.route,id]);
     }
 }

@@ -1,16 +1,17 @@
-import { InvalidUserError } from './../common/invalid-user-error';
 //Angular Core
 import { Injectable } from '@angular/core';
 import { Inject } from '@angular/core';
 //Errors
-import { BadRequestError } from './../common/bad-request-error';
-import { NotFoundError } from './../common/not-found-error';
-import { AppError } from './../common/app-error';
+import { InvalidUserError } from '../common/error/invalid-user-error';
+import { BadRequestError } from '../common/error/bad-request-error';
+import { NotFoundError } from '../common/error/not-found-error';
+import { AppError } from '../common/error/app-error';
 //rxjs
 import { Observable,throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { Constants } from '../common/constants/constants';
 
 @Injectable()
 export class DataService {
@@ -36,7 +37,7 @@ export class DataService {
   }
 
   update(resource){
-    return this.http.patch(this._url+'/'+resource.id,JSON.stringify({isRead:true}))
+    return this.http.patch(this._url+Constants.BACK_SLASH+resource.id,JSON.stringify({isRead:true}))
     .pipe(
       map(response=>response)
     ).pipe(
@@ -45,7 +46,7 @@ export class DataService {
   }
 
   delete(id){
-    return this.http.delete(this._url+'/'+id)
+    return this.http.delete(this._url+Constants.BACK_SLASH+id)
     .pipe(
       map(response=>response)
     ).pipe(
@@ -54,7 +55,7 @@ export class DataService {
   }
 
   getId(id){
-    return this.http.get(this._url+'/'+id)
+    return this.http.get(this._url+Constants.BACK_SLASH+id)
     .pipe(
       map(response=>response)
     ).pipe(

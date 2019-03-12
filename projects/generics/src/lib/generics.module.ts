@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { NgxMaskModule } from 'ngx-mask'
-import { AppErrorHandler } from './common/app-error-handler';
+import { AppErrorHandler } from './common/error/app-error-handler';
 import { AlertComponent } from './components/alert/alert.component';
 import { FormComponent } from './components/form/form.component';
 

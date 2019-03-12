@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from 'projects/generics/src/public_api';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
+import { Constants } from '../common/constants';
 
 @Injectable()
 export class AuthService extends DataService {
@@ -13,7 +14,8 @@ export class AuthService extends DataService {
 
    loggedIn(){
      try{
-       return (!!localStorage.getItem('token') && !this.jwtHelper.isTokenExpired(localStorage.getItem('token')));
+       return (!!localStorage.getItem(Constants.TOKEN) 
+               && !this.jwtHelper.isTokenExpired(localStorage.getItem(Constants.TOKEN)));
      }catch(error){
        return false;
      }
@@ -24,6 +26,6 @@ export class AuthService extends DataService {
    }
 
    getToken(){
-     return localStorage.getItem('token');
+     return localStorage.getItem(Constants.TOKEN);
    }
 }

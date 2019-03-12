@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { SystemDataComponent } from './system-data/system-data.component';
 import { BugsDataComponent } from './bugs-data/bugs-data.component';
+import { AboutComponent } from './about/about.component';
 //Guard
 import { AuthGuard } from './services/auth.guard';
 //Services
@@ -26,10 +27,11 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
 import { CriticalityChartService } from './services/chart-services/criticality-chart.service';
-import { AboutComponent } from './about/about.component';
+//Constants
+import { Constants } from './common/constants';
 
 export function jwtTokenGetter(){
-    return localStorage.getItem('token');
+    return localStorage.getItem(Constants.TOKEN);
 }
 
 export function HttpLoaderFactory(http: HttpClient) {

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { InvalidUserError } from 'projects/generics/src/lib/common/invalid-user-error';
+import { InvalidUserError } from 'projects/generics/src/lib/common/error/invalid-user-error';
+import { Constants } from '../common/constants';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,8 @@ import { InvalidUserError } from 'projects/generics/src/lib/common/invalid-user-
 export class LoginComponent implements OnInit {
 
   form = new FormGroup({
-    user_login: new FormControl('', Validators.required),
-    user_password: new FormControl('', Validators.required)
+    user_login: new FormControl(Constants.EMPTY_SPACE, Validators.required),
+    user_password: new FormControl(Constants.EMPTY_SPACE, Validators.required)
   });
 
   loginUserData = {};
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
     console.log('LoginComponent.userData>', this.form.value);
     this.auth.getObject(this.form.value).subscribe(
       data => {
-        localStorage.setItem('token', data[0].token);
+        localStorage.setItem(Constants.TOKEN, data[0].token);
         this.router.navigate(['/home'], { skipLocationChange: true});
       },
       error => {
