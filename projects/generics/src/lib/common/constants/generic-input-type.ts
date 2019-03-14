@@ -8,5 +8,6 @@ export class GenericInputType {
     public static CHECKBOX="checkbox";
     public static COMBOBOX="combobox";
     public static BUTTON="button";
+    public static SUBMIT="submit";
     public static RESET="reset";
 }

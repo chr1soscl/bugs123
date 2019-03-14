@@ -70,6 +70,9 @@
         <lib-alert [input]="input" [form]="form"></lib-alert>
       </div>
       <div *ngSwitchCase="'button'">
+        <button type="{{input.type}}" class="btn btn mb-2" (click)="onClick()">{{input.label}}</button>
+      </div>
+      <div *ngSwitchCase="'submit'">
         <button type="{{input.type}}" class="btn btn mb-2" (click)="onClick()" [disabled]="!form.valid">{{input.label}}</button>
       </div>
       <div *ngSwitchCase="'reset'">

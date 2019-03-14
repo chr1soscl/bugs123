@@ -45,7 +45,7 @@ export class StatisticsComponent implements OnInit {
       options:this.releases},
       {id:'phase',label:this.translate.instant('Statisticspage.testing-phase'),type:'combobox',
       options:this.phases},
-     {label:this.translate.instant('Statisticspage.paint'),type:'button'},
+     {label:this.translate.instant('Statisticspage.paint'),type:'submit'},
      {label:this.translate.instant('Statisticspage.clear'),type:'reset'}
    ];
 

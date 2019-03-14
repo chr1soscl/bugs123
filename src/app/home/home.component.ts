@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
       {id: 'comments', label: 'Comments', type: 'textarea'}
      ],
      [
-        {label: this.translate.instant('Navigationpage.search'), type: 'button', action: 'search'},
+        {label: this.translate.instant('Navigationpage.search'), type: 'submit', action: 'search'},
         {label: this.translate.instant('Homepage.clear'), type: 'reset'}
      ]
    ];

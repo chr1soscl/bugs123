@@ -58,7 +58,10 @@ export class FormComponent implements OnInit {
           if(input.type!==undefined && input.type===GenericInputType.CHECKBOX){
             this.form.addControl(input.id, this.getCheckBoxFormArray(input));
           }
-          if(input.type!==undefined && (input.type===GenericInputType.RADIO || input.type===GenericInputType.DATE || input.type===GenericInputType.COMBOBOX)){
+          if(input.type!==undefined && (
+            input.type===GenericInputType.RADIO || 
+            input.type===GenericInputType.DATE || 
+            input.type===GenericInputType.COMBOBOX)){
             this.form.addControl(input.id, this.getRequiredValidator(input.required));
           }else{
             if (input.validators !== undefined) {
