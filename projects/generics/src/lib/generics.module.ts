@@ -1,15 +1,17 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask'
+import { BrowserModule } from '@angular/platform-browser';
+import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { SearchComponent } from './components/search/search.component';
 import { NgxDataTableComponent } from './components/ngx-data-table/ngx-data-table.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
-import { NgxMaskModule } from 'ngx-mask'
-import { AppErrorHandler } from './common/error/app-error-handler';
 import { AlertComponent } from './components/alert/alert.component';
 import { FormComponent } from './components/form/form.component';
+
+import { AppErrorHandler } from './common/error/app-error-handler';
 
 @NgModule({
   declarations: [

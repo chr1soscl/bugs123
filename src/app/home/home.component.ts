@@ -20,44 +20,9 @@ export class HomeComponent implements OnInit {
    ];
 
    formFields2: any[] = [
-     [
       {id: 'id', label: 'Id', type: 'number', validators: ['required', 'max|10']},
-      {id: 'fName', label: this.translate.instant('Homepage.first-name'), type: 'text'},
-      {id: 'lName', label: this.translate.instant('Homepage.last-name'), type: 'text'},
-      {id: 'dob', label: this.translate.instant('Homepage.dob'), type: 'date', required:true}
-     ],
-     [
-      {id: 'aLine1', label: 'Address Line', type: 'text'},
-      {id: 'aLine2', label: 'Address Line 2', type: 'text'},
-      {id: 'zip', label: 'Zip Code', type: 'text',mask:'00000'},
-      {id: 'city', label: 'City', type: 'text'},
-      {id: 'phone', label: 'Phone Number', type: 'text',mask:'(000) 000-0000'},
-      {id: 'ssn', label: 'SSN', type: 'text',mask:'000-00-0000'},
-      {id: 'ccn', label: 'Credit Card Number', type: 'text',mask:'0000-0000-0000-0000'},
-      {id: 'state', label: 'State', type: 'combobox',
-       options: states.getStates(),
-       required:true},
-       {id: 'pet', label: 'Pet', type: 'checkbox',
-       options: [
-         {id: 'dog', label: 'Dog'},
-         {id: 'cat', label: 'Cat'},
-         {id: 'fish', label: 'Fish'},
-         {id: 'hamster', label:'Hamster'}
-       ],
-       required:true},
-       {id: 'sex', label: 'Sex', type: 'radio',
-       options: [
-         {id: 'M', label: 'Male'},
-         {id: 'F', label: 'Female'}
-       ]}
-     ],
-     [
-      {id: 'comments', label: 'Comments', type: 'textarea'}
-     ],
-     [
-        {label: this.translate.instant('Navigationpage.search'), type: 'submit', action: 'search'},
-        {label: this.translate.instant('Homepage.clear'), type: 'reset'}
-     ]
+      {label: this.translate.instant('Navigationpage.search'), type: 'submit', action: 'search'},
+      {label: this.translate.instant('Homepage.clear'), type: 'reset'}
    ];
 
   constructor(private userService: UsersService,
@@ -77,7 +42,7 @@ export class HomeComponent implements OnInit {
 
   onClick(event: any): void {
     console.log('onClick>', event);
-    this.userService.getId(event[0].id).subscribe(
+    this.userService.getId(event.id).subscribe(
       data => {
         this.dataResults = [];
         this.dataResults.push(data);
