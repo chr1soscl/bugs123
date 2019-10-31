@@ -10,23 +10,23 @@ import { states } from '../common/states';
 })
 export class HomeComponent implements OnInit {
 
-   dataResults: any;
-   columns = ['name', 'username', 'email', 'phone', 'website'];
+  dataResults: any;
+  columns = ['name', 'username', 'email', 'phone', 'website'];
 
-   formFields: any[] = [
-    {id: 'id', label: 'Id', type: 'text', validators: ['required', 'max|10']},
-     {label: 'Search', type: 'button'},
-     {label: 'Clean', type: 'reset'}
-   ];
+  formFields: any[] = [
+    { id: 'id', label: 'Id', type: 'text', validators: ['required', 'max|10'] },
+    { label: 'Search', type: 'button' },
+    { label: 'Clean', type: 'reset' }
+  ];
 
-   formFields2: any[] = [
-      {id: 'id', label: 'Id', type: 'number', validators: ['required', 'max|10']},
-      {label: this.translate.instant('Navigationpage.search'), type: 'submit', action: 'search'},
-      {label: this.translate.instant('Homepage.clear'), type: 'reset'}
-   ];
+  formFields2: any[] = [
+    { id: 'id', label: 'Id', type: 'number', validators: ['required', 'max|10'] },
+    { label: this.translate.instant('Navigationpage.search'), type: 'submit', action: 'search' },
+    { label: this.translate.instant('Homepage.clear'), type: 'reset' }
+  ];
 
   constructor(private userService: UsersService,
-              private translate: TranslateService) { }
+    private translate: TranslateService) { }
 
   ngOnInit() {
     this.userService.getAll().subscribe(
