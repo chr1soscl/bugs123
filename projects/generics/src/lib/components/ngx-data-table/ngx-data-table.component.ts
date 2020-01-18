@@ -17,7 +17,6 @@ export class NgxDataTableComponent{
 
     @Input() columns:any[];
     @Input() route:string;
-    @Input() IdColumn:string;
 
     @Input() set data(_data: any[]){
         if(_data===undefined)
