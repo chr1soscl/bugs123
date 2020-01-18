@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { NgxDataTableDataSource } from './ngx-data-table-datasource';
 import { Router } from '@angular/router';
+import { CdkDragStart, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Constants } from '../../common/constants/constants';
 
 @Component({
@@ -12,6 +13,7 @@ import { Constants } from '../../common/constants/constants';
 export class NgxDataTableComponent{
    
     id:String;
+    previousIndex: number;
 
     @Input() columns:any[];
     @Input() route:string;
@@ -39,4 +41,22 @@ export class NgxDataTableComponent{
         this.id=id;
         this.router.navigate([Constants.BACK_SLASH+this.route,id]);
     }
+
+    dragStarted(event: CdkDragStart, index: number ) {
+        this.previousIndex = index;
+    }
+    
+    dropListDropped(event: CdkDropList, index: number) {
+        if (event) {
+          moveItemInArray(this.columns, this.previousIndex, index);
+          this.setDisplayedColumns();
+        }
+    }
+    
+    setDisplayedColumns() {
+        this.columns.forEach(( colunm, index) => {
+          this.displayedColumns[index] = colunm;
+        });
+    }
+    
 }

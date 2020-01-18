@@ -1,7 +1,15 @@
 <div class="mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource" matSort arial-label="Elements">
-       <ng-container [matColumnDef]="cols" *ngFor="let cols of displayedColumns">
-           <mat-header-cell *matHeaderCellDef mat-sort-header>{{cols}}</mat-header-cell>
+    <mat-table #table [dataSource]="dataSource" cdkDropListGroup matSort arial-label="Elements">
+       <ng-container [matColumnDef]="cols" *ngFor="let cols of displayedColumns;let i=index">
+           <mat-header-cell *matHeaderCellDef 
+           cdkDropList
+           cdkDropListLockAxis="x"
+           cdkDropListOrientation="horizontal"
+           (cdkDropListDropped)="dropListDropped($event, i)"
+           cdkDrag
+           (cdkDragStarted)="dragStarted($event, i)"
+           [cdkDragData]="{name: cols, columIndex: i}"
+           mat-sort-header>{{cols}}</mat-header-cell>
            <mat-cell *matCellDef="let element">
             <ng-container *ngIf="cols===IdColumn; then link; else text">
             </ng-container>

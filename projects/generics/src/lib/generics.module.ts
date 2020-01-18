@@ -12,6 +12,9 @@ import { AlertComponent } from './components/alert/alert.component';
 import { FormComponent } from './components/form/form.component';
 
 import { AppErrorHandler } from './common/error/app-error-handler';
+import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { AppErrorHandler } from './common/error/app-error-handler';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    CdkTableModule,
+    CdkTreeModule,
+    DragDropModule,
     NgxMaskModule.forRoot()
   ],
   exports: [
