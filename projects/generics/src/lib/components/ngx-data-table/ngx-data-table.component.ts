@@ -14,6 +14,7 @@ export class NgxDataTableComponent{
    
     id:String;
     previousIndex: number;
+    IdColumn: string;
 
     @Input() columns:any[];
     @Input() route:string;
@@ -56,6 +57,14 @@ export class NgxDataTableComponent{
         this.columns.forEach(( colunm, index) => {
           this.displayedColumns[index] = colunm;
         });
+    }
+
+    getIdColumn(){
+        return this.IdColumn;
+    }
+
+    setIdColumn(id:string){
+        this.IdColumn=id;
     }
     
 }
