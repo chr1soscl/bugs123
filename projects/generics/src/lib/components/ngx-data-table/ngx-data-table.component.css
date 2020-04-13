@@ -8,3 +8,11 @@ mat-header-cell,mat-paginator,.btn{
 .fa-pencil{
     margin-right: 10px;
 }
+
+.fa-2x:hover{
+    color: white;
+    background-color: black;
+    border:5px;
+    border-radius: 3px;
+    padding: 5px;
+}
