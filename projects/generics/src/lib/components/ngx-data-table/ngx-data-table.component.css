@@ -4,3 +4,7 @@ mat-header-cell,mat-paginator,.btn{
     font: Arial;
     font-size: 15px;
 }
+
+.fa-pencil{
+    margin-right: 10px;
+}
