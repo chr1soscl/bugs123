@@ -1,6 +1,7 @@
 <div class="mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource" cdkDropListGroup matSort arial-label="Elements">
        <ng-container [matColumnDef]="cols" *ngFor="let cols of displayedColumns;let i=index">
+        <div *ngIf="cols==='editable'">
            <mat-header-cell *matHeaderCellDef 
            cdkDropList
            cdkDropListLockAxis="x"
@@ -9,8 +10,24 @@
            cdkDrag
            (cdkDragStarted)="dragStarted($event, i)"
            [cdkDragData]="{name: cols, columIndex: i}"
-           mat-sort-header>{{cols}}</mat-header-cell>
-           <mat-cell *matCellDef="let element">
+           >
+           <i class="fa fa-plus fa-2x" aria-hidden="true" (click)="onClickEdit(null,'add')"></i>
+           </mat-header-cell>
+        </div>
+        <div *ngIf="cols!=='editable'">
+           <mat-header-cell *matHeaderCellDef 
+           cdkDropList
+           cdkDropListLockAxis="x"
+           cdkDropListOrientation="horizontal"
+           (cdkDropListDropped)="dropListDropped($event, i)"
+           cdkDrag
+           (cdkDragStarted)="dragStarted($event, i)"
+           [cdkDragData]="{name: cols, columIndex: i}"
+           mat-sort-header>
+           {{cols}}
+           </mat-header-cell>
+        </div>
+           <mat-cell *matCellDef="let element;let j=index">
             <ng-container *ngIf="cols===IdColumn; then link; else text">
             </ng-container>
             <ng-template #link>
@@ -20,12 +37,15 @@
                     (click)="onClick(element[cols])"
                     >{{element[cols]}}</button>
                 </div>
-                <div *ngIf="element[cols]===undefined" class="alert alert-danger mt-3">
-                    No Results Found.
-                </div>
             </ng-template>
             <ng-template #text>
-                {{element[cols]}}
+                <div *ngIf="cols==='editable'">
+                    <i class="fa fa-pencil fa-2x" aria-hidden="true" (click)="onClickEdit(j,'edit')"></i> - 
+                    <i class="fa fa-trash-o fa-2x" aria-hidden="true" (click)="onClickEdit(j,'delete')"></i>
+                </div>
+                <div *ngIf="cols!=='editable'">
+                    {{element[cols]}}
+                </div>
             </ng-template>
         </mat-cell>
        </ng-container>

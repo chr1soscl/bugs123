@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, Output } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { NgxDataTableDataSource } from './ngx-data-table-datasource';
 import { Router } from '@angular/router';
 import { CdkDragStart, CdkDropList, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Constants } from '../../common/constants/constants';
+import { EventEmitter } from '@angular/core'
 
 @Component({
     selector: 'ngx-data-table',
@@ -14,10 +15,11 @@ export class NgxDataTableComponent{
    
     id:String;
     previousIndex: number;
-    IdColumn: string;
-
+    
+    @Input() IdColumn: string;
     @Input() columns:any[];
     @Input() route:string;
+    @Output() onClick:EventEmitter<any>=new EventEmitter<any>();
 
     @Input() set data(_data: any[]){
         if(_data===undefined)
@@ -36,10 +38,17 @@ export class NgxDataTableComponent{
 
     constructor(public router:Router){}
     
-    onClick(id:string){
+    onClickButton(id:string){
         console.log('DataTable.onClick()=',id,this.route);
         this.id=id;
-        this.router.navigate([Constants.BACK_SLASH+this.route,id]);
+        this.onClick.emit({id:this.id,route:this.route}   
+        );
+    }
+
+    onClickEdit(id:string,action:string){
+        console.log('DataTable.onClickEdit()=',id,action);
+        this.id=id;
+        this.onClick.emit({id:this.id,action:action});
     }
 
     dragStarted(event: CdkDragStart, index: number ) {

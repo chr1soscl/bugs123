@@ -11,7 +11,7 @@ import { states } from '../common/states';
 export class HomeComponent implements OnInit {
 
   dataResults: any;
-  columns = ['name', 'username', 'email', 'phone', 'website'];
+  columns = ['name', 'username', 'email', 'phone', 'website','editable'];
 
   formFields: any[] = [
     { id: 'id', label: 'Id', type: 'text', validators: ['required', 'max|10'] },
