@@ -16,9 +16,10 @@ export class NgxDataTableComponent{
     id:String;
     previousIndex: number;
     
-    @Input() IdColumn: string;
+    @Input() idColumn: string;
     @Input() columns:any[];
     @Input() route:string;
+    @Input() disabled:boolean=false;
     @Output() onClick:EventEmitter<any>=new EventEmitter<any>();
 
     @Input() set data(_data: any[]){
@@ -38,10 +39,10 @@ export class NgxDataTableComponent{
 
     constructor(public router:Router){}
     
-    onClickButton(id:string){
-        console.log('DataTable.onClick()=',id,this.route);
+    onClickButton(id:string,action:string){
+        console.log('DataTable.onClick()=',id,action,this.route);
         this.id=id;
-        this.onClick.emit({id:this.id,route:this.route}   
+        this.onClick.emit({id:this.id,action:action,route:this.route}   
         );
     }
 
@@ -69,11 +70,19 @@ export class NgxDataTableComponent{
     }
 
     getIdColumn(){
-        return this.IdColumn;
+        return this.idColumn;
     }
 
     setIdColumn(id:string){
-        this.IdColumn=id;
+        this.idColumn=id;
+    }
+
+    getIcon(icon:string){
+        if(this.disabled){
+          return 'fa fa-'+icon+' fa-2x disabled-icon align-column';
+        } else {
+          return 'fa fa-'+icon+' fa-2x align-column';
+        }
     }
     
 }

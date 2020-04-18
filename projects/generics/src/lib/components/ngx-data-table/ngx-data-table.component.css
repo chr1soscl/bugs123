@@ -8,6 +8,11 @@ mat-header-cell,mat-paginator,.btn{
 .fa-pencil{
     margin-right: 10px;
 }
+
+.disabled-icon{
+    pointer-events:none;
+    color: gray;
+}
 /*
 .fa-2x:hover{
     color: white;

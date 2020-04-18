@@ -11,7 +11,7 @@
            (cdkDragStarted)="dragStarted($event, i)"
            [cdkDragData]="{name: cols, columIndex: i}"
            >
-           <i class="fa fa-plus fa-2x" aria-hidden="true" (click)="onClickEdit(null,'add')"></i>
+           <i [className]="getIcon('plus')" aria-hidden="true" (click)="onClickEdit(null,'add')"></i>
            </mat-header-cell>
         </div>
         <div *ngIf="cols!=='editable'">
@@ -28,20 +28,20 @@
            </mat-header-cell>
         </div>
            <mat-cell *matCellDef="let element;let j=index">
-            <ng-container *ngIf="cols===IdColumn; then link; else text">
+            <ng-container *ngIf="cols===idColumn; then link; else text">
             </ng-container>
             <ng-template #link>
                 <div *ngIf="element[cols]!==undefined">
                     <button class="btn btn-sm"
                     [value]="element[cols]"
-                    (click)="onClick(element[cols])"
+                    (click)="onClickButton(element[cols],'redirect')"
                     >{{element[cols]}}</button>
                 </div>
             </ng-template>
             <ng-template #text>
                 <div *ngIf="cols==='editable'">
-                    <i class="fa fa-pencil fa-2x" aria-hidden="true" (click)="onClickEdit(j,'edit')"></i>  
-                    <i class="fa fa-trash-o fa-2x" aria-hidden="true" (click)="onClickEdit(j,'delete')"></i>
+                    <i [className]="getIcon('pencil')" aria-hidden="true" (click)="onClickEdit(element[idColumn],'edit')"></i>  
+                    <i [className]="getIcon('trash-o')" aria-hidden="true" (click)="onClickEdit(element[idColumn],'delete')"></i>
                 </div>
                 <div *ngIf="cols!=='editable'">
                     {{element[cols]}}

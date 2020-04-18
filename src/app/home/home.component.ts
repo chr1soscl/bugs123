@@ -11,7 +11,8 @@ import { states } from '../common/states';
 export class HomeComponent implements OnInit {
 
   dataResults: any;
-  columns = ['name', 'username', 'email', 'phone', 'website','editable'];
+  columns = ['phone','name', 'username', 'email', 'website','editable'];
+  columnID='phone';
 
   formFields: any[] = [
     { id: 'id', label: 'Id', type: 'text', validators: ['required', 'max|10'] },
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.userService.getAll().subscribe(
       data => {
-        console.log(data);
+        //console.log(data);
         this.dataResults = data;
       },
       error => {
