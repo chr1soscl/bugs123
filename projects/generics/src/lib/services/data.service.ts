@@ -21,7 +21,7 @@ export class DataService {
   getAll(){
     return this.http.get(this._url)
     .pipe(
-      map(response=>response)
+      map(response=>response,error=>error)
     ).pipe(
       catchError(this.handleError)
     );
@@ -30,7 +30,7 @@ export class DataService {
   create(resource){
     return this.http.post(this._url,JSON.stringify(resource))
     .pipe(
-      map(response=>response)
+      map(response=>response,error=>error)
     ).pipe(
       catchError(this.handleError)
     );
@@ -39,7 +39,7 @@ export class DataService {
   update(resource){
     return this.http.patch(this._url+Constants.BACK_SLASH+resource.id,JSON.stringify({isRead:true}))
     .pipe(
-      map(response=>response)
+      map(response=>response,error=>error)
     ).pipe(
       catchError(this.handleError)
     );
@@ -48,7 +48,7 @@ export class DataService {
   delete(id){
     return this.http.delete(this._url+Constants.BACK_SLASH+id)
     .pipe(
-      map(response=>response)
+      map(response=>response,error=>error)
     ).pipe(
       catchError(this.handleError)
     );
@@ -57,7 +57,7 @@ export class DataService {
   getId(id){
     return this.http.get(this._url+Constants.BACK_SLASH+id)
     .pipe(
-      map(response=>response)
+      map(response=>response,error=>error)
     ).pipe(
       catchError(this.handleError)
     );
@@ -66,7 +66,7 @@ export class DataService {
   getObject(resource){
     return this.http.post(this._url,resource)
     .pipe(
-      map(response=>response)
+      map(response=>response,error=>error)
     ).pipe(
       catchError(this.handleError)
     );
